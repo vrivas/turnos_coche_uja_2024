@@ -17,6 +17,9 @@ function diaToDiv( ) {
     let divEficiencia=""//`<div class='eficiencia-dia'>Eficiencia ${this.eficiencia}</div>`;
     let divTurnos="";
     this.infoTurnos.filter( it => !null).forEach(it => divTurnos+=infoTurnoToDiv(it) );
+    if( clasesDia.includes("no-lectivo") && !clasesDia.includes("fin-de-semana") ) {
+        divTurnos=`<div>${this.festivo}</div>`;
+    }
 
     return `<div class='${clasesDia}' ${idDia}>
         ${divFecha}
