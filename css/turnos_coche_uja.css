@@ -15,7 +15,10 @@
     padding: 2px;
     float: left;
     max-width: 15em;
-
+    width: 18%
+}
+.fin-de-semana {
+    width: 10%;
 }
 
 .nueva-semana {
@@ -99,4 +102,17 @@
   }
   .separador {
     clear:both;
+  }
+
+
+  @media (max-width: 600px) {
+    .dia {
+        max-width: 100%;
+        width: 100%;
+        clear: both;
+    }
+    .fin-de-semana {
+        display: none;
+    }
+    
   }
