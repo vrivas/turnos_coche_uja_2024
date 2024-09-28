@@ -93,7 +93,7 @@ function infoTurnoToDiv(info) {
     let divNuevo=info.nuevo?"<div class='etiqueta-nuevo'>N</div>":"";
     let divCambio=info.cambio?"<div class='etiqueta-cambio'>M</div>":"";
     let spanLugar=(info.lugar)?`<span class="lugar">${info.lugar}</span><br/>`:"";
-    let divHorario=`<div class='horario'>${spanLugar}↑ ${info.hora_gr}-${info.hora_j} ↓</div>`;
+    let divHorario=`<div class='horario'>${spanLugar}${info.hora_gr}↔${info.hora_j}</div>`;
     let spanConductor=`<span class="nombre-conductor">${info.conductor}</span>`;
     let spanAcompanantes=info.acompanantes.length>0?`<span class="nombres-acompanantes">(${info.acompanantes.join(", ")})</span>`:"";
     let divPersonas=`<div class='personas'>
