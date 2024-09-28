@@ -5,6 +5,8 @@ function diaToDiv( ) {
     let msj="";
     // clases aplicables al día
     let clasesDia=["dia"];
+    if( this.fecha.getDay()==1 ) clasesDia.push("nueva-semana");
+    if( this.fecha.getDate()==1 ) clasesDia.push("nuevo-mes");
     let idDia="";
     if( this.festivo!=null ) clasesDia.push("no-lectivo");
     if( this.fecha.toComparableString()==(new Date()).toComparableString() ) idDia="id='hoy'";

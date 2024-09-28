@@ -13,9 +13,14 @@
     background-color: rgba(200, 200, 250, .1);
     margin: 2px;
     padding: 2px;
+    float: left;
+    max-width: 15em;
 
 }
 
+.nueva-semana {
+   clear: both;
+} 
 .fecha-dia {
     background-color: rgba(200, 200, 255, 1);
     text-align: right;
