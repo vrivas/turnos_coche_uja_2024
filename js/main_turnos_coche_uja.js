@@ -1,15 +1,16 @@
-function listarDias(){
-    let div=document.getElementById("main");
-    div.innerHTML="<h1>Turnos de coche UJA</h1>";
+function mostrarDiasCuatrimestre(){
+    let divTitulo=document.getElementById("titulo");
+    let divContenido=document.getElementById("contenido");
+    divTitulo.innerHTML="Turnos "+cuatrimestre.getTitulo();
     let msj="";
     D.forEach( d => {
         msj+=d.toDiv()+"\n";
     });
-    div.innerHTML+=msj;
+    divContenido.innerHTML+=msj;
     
 }
 
 
 
 
-listarDias();
+mostrarDiasCuatrimestre();

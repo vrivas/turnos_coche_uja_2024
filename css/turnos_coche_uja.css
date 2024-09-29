@@ -4,9 +4,24 @@
   font-weight: 300;
   font-style: normal;
 }
-.usuario {
+.parte-inferior-menu {
     visibility: hidden;
 }
+
+main #titulo {
+  margin-bottom: .4em;
+  background-color: #eee;
+  padding: .4em;
+  border-radius: 1rem;
+}
+main #contenido {
+  position: fixed;
+  overflow: scroll;
+  height: 100%;
+  width: 90%
+}
+
+
 .dia {
     border: 1px solid rgba(200, 200, 255, .8);
     border-radius: 5px;
@@ -14,11 +29,11 @@
     margin: 2px;
     padding: 2px;
     float: left;
-    max-width: 15em;
-    width: 18%
+    max-width: 14em;
+    width: 17%
 }
 .fin-de-semana {
-    width: 10%;
+    width: 9%;
 }
 
 .nueva-semana {
@@ -120,9 +135,14 @@
 
   @media (max-width: 600px) {
     .dia {
-        max-width: 100%;
+        max-width: 95%;
         width: 100%;
         clear: both;
+    }
+    main #titulo {
+        width: 100%;
+        font-size: 130%;
+        border-radius: 2px;
     }
     .fin-de-semana {
         display: none;
