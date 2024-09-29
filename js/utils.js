@@ -18,7 +18,7 @@ Date.prototype.toComparableString = function() {
            cerear(day);
 }
 
-Date.prototype.toDD_MMM_YYY = function() {
+Date.prototype.toDD_MMM_YYYY = function() {
     let year=this.getFullYear();
     let month=this.getMonth();
     let day=this.getDate();
@@ -26,11 +26,11 @@ Date.prototype.toDD_MMM_YYY = function() {
 }
 
 Date.prototype.toDD_MMM = function() {
-    let tmp=this.toDD_MMM_YYY();
+    let tmp=this.toDD_MMM_YYYY();
     return tmp.substring(0,tmp.length-5);
 }
 Date.prototype.toDW_DD_MMM = function() {
-    let tmp=this.toDD_MMM_YYY();
+    let tmp=this.toDD_MMM_YYYY();
     return NOMBRE_DIAS_3_LETRAS[ this.getDay()]+", "+tmp.substring(0,tmp.length-5);
 }
 

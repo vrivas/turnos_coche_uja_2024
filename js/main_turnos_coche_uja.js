@@ -1,16 +1,23 @@
-function mostrarDiasCuatrimestre(){
+function mostrarDias(titulo, dias){
     let divTitulo=document.getElementById("titulo");
     let divContenido=document.getElementById("contenido");
-    divTitulo.innerHTML="Turnos "+cuatrimestre.getTitulo();
+    divTitulo.innerHTML=titulo
     let msj="";
-    D.forEach( d => {
+    dias.forEach( d => {
         msj+=d.toDiv()+"\n";
     });
-    divContenido.innerHTML+=msj;
+    divContenido.innerHTML=msj;
     
+}
+function mostrarDiasCuatrimestre(){
+    mostrarDias(cuatrimestre.getTitulo(),D);    
+}
+
+function mostrarDiaHoy(){
+    let hoy=new Date();
+    mostrarDias( "Hoy, "+hoy.toDD_MMM_YYYY(), D.filter(d => d.fecha.toComparableString()==hoy.toComparableString()) );    
 }
 
 
-
-
+// Por defecto, mostramos los días del cuatrimestre
 mostrarDiasCuatrimestre();
