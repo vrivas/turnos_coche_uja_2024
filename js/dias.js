@@ -1,10 +1,10 @@
 /// Genera los días del cuatrimestre
 let D=[];
 
-function diaToDiv( ) {
+function diaToDiv( clases=[] ) {
     let msj="";
     // clases aplicables al día
-    let clasesDia=["dia"];
+    let clasesDia=["dia"].concat(clases);
     if( this.fecha.getDay()==1 ) clasesDia.push("nueva-semana");
     if( this.fecha.getDate()==1 ) clasesDia.push("nuevo-mes");
     if( this.fecha.getDay()==0 || this.fecha.getDay()==6 ) clasesDia.push("fin-de-semana");

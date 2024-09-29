@@ -8,17 +8,20 @@
     visibility: hidden;
 }
 
-main #titulo {
+main #titulo, main #contenido {
   margin-bottom: .4em;
-  background-color: #eee;
   padding: .4em;
+}
+
+main #titulo {
+  background-color: #eee;
   border-radius: 1rem;
 }
 main #contenido {
   position: fixed;
   overflow: scroll;
-  height: 100%;
-  width: 90%
+  height: 90%;
+  width: 77%;
 }
 
 
@@ -29,11 +32,16 @@ main #contenido {
     margin: 2px;
     padding: 2px;
     float: left;
-    max-width: 14em;
-    width: 17%
+    width: 19%;
 }
 .fin-de-semana {
     width: 9%;
+    display: none;
+}
+.dia-pantalla-completa {
+    width: 50%;
+    max-width: 50%;
+    margin-left: 15%;
 }
 
 .nueva-semana {
@@ -134,10 +142,15 @@ main #contenido {
 
 
   @media (max-width: 600px) {
-    .dia {
-        max-width: 95%;
+    .dia , .dia-pantalla-completa{
+        max-width: 100%;
         width: 100%;
         clear: both;
+    }
+    .dia-pantalla-completa{
+      width: 100%;
+      max-width: 100%;
+      margin-left: 0%;
     }
     main #titulo {
         width: 100%;

@@ -34,6 +34,11 @@ Date.prototype.toDW_DD_MMM = function() {
     return NOMBRE_DIAS_3_LETRAS[ this.getDay()]+", "+tmp.substring(0,tmp.length-5);
 }
 
+Date.prototype.toDW_DD_MMM_YYYY = function() {
+    let tmp=this.toDD_MMM_YYYY();
+    return NOMBRE_DIAS_3_LETRAS[ this.getDay()]+", "+tmp;
+}
+
 function comparaFechas( fecha1, fecha2 ) {
     let toRet=0;
     if( fecha1.toComparableString() < fecha2.toComparableString() ) toRet=-1;
