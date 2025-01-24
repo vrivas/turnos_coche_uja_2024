@@ -7,7 +7,7 @@ function Turno(
   _numTurno,
   _hora_gr,
   _hora_j,
-  _profesores,
+  _personas,
   _lugar,
   _fechaInicio,
   _fechaFin
@@ -18,13 +18,13 @@ function Turno(
   this.hora_j = _hora_j;
   this.lugar = _lugar || "";
   this.comentarios = [];
-  this.profesores = _profesores || [];
-  this.profesores.forEach((p) => (p.activo = true));
-  this.correos = this.profesores.map((p) => p.correo).join(", ");
+  this.personas = _personas || [];
+  this.personas.forEach((p) => (p.activo = true));
+  this.correos = this.personas.map((p) => p.correo).join(", ");
   this.fechaInicio = _fechaInicio || cuatrimestre.inicio;
   this.fechaFin = _fechaFin || cuatrimestre.fin;
   this.contador =
-    this.profesores.length > 0 ? this.numTurno % this.profesores.length : 0;
+    this.personas.length > 0 ? this.numTurno % this.personas.length : 0;
   this.desdoblarSi5 = false;
   this._primeraMuestra = false;
   this.nuevo = true;
@@ -32,10 +32,10 @@ function Turno(
   this.activo = true;
 
   this.addProfesor = function (_profesor, _pos, _com) {
-    this.profesores = this.profesores
+    this.personas = this.personas
       .slice(0, _pos)
       .concat([_profesor])
-      .concat(this.profesores.slice(_pos));
+      .concat(this.personas.slice(_pos));
     this.addComentarios("Se añade a " + _profesor.nombre + " " + _com);
     return this;
   };
@@ -49,7 +49,7 @@ function Turno(
   };
   this.incrementaContador = function () {
     this.contador++;
-    this.contador = this.contador % this.profesores.length;
+    this.contador = this.contador % this.personas.length;
     return this;
   };
   this.cancelar = function (_comentario) {
@@ -80,10 +80,10 @@ function Turno(
       numTurno: this.numTurno,
       hora_gr: this.hora_gr,
       hora_j: this.hora_j,
-      conductor: this.profesores[this.contador].nombre,
-      acompanantes: this.profesores
+      conductor: this.personas[this.contador].nombre,
+      acompanantes: this.personas
         .slice(0, this.contador)
-        .concat(this.profesores.slice(this.contador + 1))
+        .concat(this.personas.slice(this.contador + 1))
         .map((p) => p.nombre),
       lugar: this.lugar,
       comentarios: this.comentarios,
@@ -99,6 +99,50 @@ function Turno(
     this.cambio = false;
     return info;
   };
+}
+
+function infoTurnoToInfoDiv(turno) {
+  if (turno == null) return "A";
+  let msj = "";
+  let clasesInfoTurno = ["info-turno"];
+  let divNumTurno = `<div class='num-turno'>${cerear(turno.numTurno)}</div>`;
+  let divNuevo = null; //info.nuevo ? "<div class='etiqueta-nuevo'>N</div>" : "";
+  let divCambio = null; //info.cambio ? "<div class='etiqueta-cambio'>M</div>" : "";
+  let spanLugar = turno.lugar
+    ? `<span class="lugar">${turno.lugar}</span><br/>`
+    : "";
+  let dia_semana = NOMBRE_DIAS[turno.dia];
+  let divHorario = `<div class='horario'>${dia_semana} ${spanLugar}${turno.hora_gr}↔${turno.hora_j}</div>`;
+
+  let nombrePersonas = "";
+  if (turno.personas.length > 0) {
+    nombrePersonas += turno.personas[0].nombre;
+  }
+  for (let i = 1; i < turno.personas.length; i++) {
+    nombrePersonas += i < turno.personas.length - 1 ? ", " : " y ";
+    nombrePersonas += turno.personas[i].nombre;
+  }
+  let divPersonas = `<div class='personas'>
+              ${nombrePersonas}.
+          </div>`;
+  let divComentarios = "";
+  if (turno.comentarios.length > 0) {
+    divComentarios = `<div class='info-comentarios'>
+                ${turno.comentarios.map((c) => " - " + c).join("<br/>")}
+            </div>`;
+  }
+  // clases aplicables al día
+  clasesInfoTurno = clasesInfoTurno.join(" ");
+  return `<div class='${clasesInfoTurno}'>
+          <div class='numero-y-cambios'>
+              ${divNumTurno}
+          </div>
+          <div class='horas-y-personas'>
+              ${divHorario}
+              ${divPersonas}
+              ${divComentarios}
+          </div>
+      </div>`;
 }
 
 function infoTurnoToDiv(info) {

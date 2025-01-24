@@ -14,6 +14,16 @@ function mostrarDias(titulo, dias = [], clases = []) {
   divContenido.innerHTML = msj;
 }
 
+function mostrarInfo(titulo, divs = [], clases = []) {
+  let divTitulo = document.getElementById("titulo");
+  let divContenido = document.getElementById("contenido");
+  divTitulo.innerHTML = titulo;
+  divContenido.innerHTML = "";
+  divs.forEach((d) => {
+    divContenido.innerHTML += d;
+  });
+}
+
 function cerrarBotonX() {
   if (document.getElementsByName("close-outline")[0].style.display == "block") {
     document.getElementsByName("close-outline")[0].click();
@@ -49,5 +59,13 @@ function mostrarDiasSemana() {
   cerrarBotonX();
 }
 
+// Mostramos la información de todos los turnos
+function mostrarTurnos() {
+  let divs = [];
+  T.forEach((t) => {
+    divs.push(infoTurnoToInfoDiv(t));
+  });
+  mostrarInfo("Turnos", divs);
+}
 // Por defecto, mostramos los días del cuatrimestre
 mostrarDiasCuatrimestre();

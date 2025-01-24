@@ -12,7 +12,15 @@ const NOMBRE_MESES_3_LETRAS = [
   "nov",
   "dic",
 ];
-const NOMBRE_DIAS_3_LETRAS = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
+const NOMBRE_DIAS = [
+  "Domingo",
+  "Lunes",
+  "Martes",
+  "Miércoles",
+  "Jueves",
+  "Sábado",
+];
+const NOMBRE_DIAS_3_LETRAS = NOMBRE_DIAS.map((d) => d.substring(0, 3));
 
 function fecha(dia, mes, anio) {
   return new Date(anio, mes - 1, dia);
