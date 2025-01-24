@@ -26,6 +26,7 @@ T.push(
     C_JMF,
     C_PACO_LUIS,
     C_ANTONIO,
+    C_ANGEL,
   ])
 );
 T.push(new Turno(C_MARTES, nTurno++, "08:15", "13:30", [C_SUSANA]));
@@ -113,7 +114,7 @@ function modificaciones_posteriores(dia) {
   if (fechaEs(fecha, 18, 2, 2025))
     aniadirConductor(4, C_NACHO, 1, "el 18/feb", 1);
   if (fechaEs(fecha, 13, 2, 2025))
-    aniadirConductor(16, C_ANGEL, 1, "el 13/feb", 1);
+    aniadirConductor(15, C_ANGEL, 2, "el 13/feb", 2);
 
   // Los lunes siempre Victor, los jueves siempre Angel
   //coches[2].setContador(0);
