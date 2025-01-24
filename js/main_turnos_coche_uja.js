@@ -15,7 +15,9 @@ function mostrarDias(titulo, dias = [], clases = []) {
 }
 
 function cerrarBotonX() {
-  document.getElementsByName("close-outline")[0].click();
+  if (document.getElementsByName("close-outline")[0].style.display == "block") {
+    document.getElementsByName("close-outline")[0].click();
+  }
 }
 
 function mostrarDiasCuatrimestre() {
