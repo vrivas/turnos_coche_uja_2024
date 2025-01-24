@@ -1,16 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-style: normal;
 }
 .parte-inferior-menu {
-    visibility: hidden;
+  visibility: hidden;
 }
 
-main #titulo, main #contenido {
-  margin-bottom: .4em;
-  padding: .4em;
+main #titulo,
+main #contenido {
+  margin-bottom: 0.4em;
+  padding: 0.4em;
 }
 
 main #titulo {
@@ -24,138 +25,128 @@ main #contenido {
   width: 77%;
 }
 
-
 .dia {
-    border: 1px solid rgba(200, 200, 255, .8);
-    border-radius: 5px;
-    background-color: rgba(200, 200, 250, .1);
-    margin: 2px;
-    padding: 2px;
-    float: left;
-    width: 19%;
+  border: 1px solid rgba(200, 200, 255, 0.8);
+  border-radius: 5px;
+  background-color: rgba(200, 200, 250, 0.1);
+  margin: 2px;
+  padding: 2px;
+  float: left;
+  width: 19%;
 }
 .fin-de-semana {
-    width: 9%;
-    display: none;
+  width: 9%;
+  display: none;
 }
 .dia-pantalla-completa {
-    width: 50%;
-    max-width: 50%;
-    margin-left: 15%;
+  width: 50%;
+  max-width: 50%;
+  margin-left: 15%;
 }
 
 .nueva-semana {
-   clear: both;
-} 
+  clear: both;
+}
 .fecha-dia {
-    background-color: rgba(200, 200, 255, 1);
-    text-align: right;
-    padding-right: 0.3em;
+  background-color: rgba(200, 200, 255, 1);
+  text-align: right;
+  padding-right: 0.3em;
 }
-#hoy{
-    background-color: rgba(200, 255, 200, .3);
+#hoy {
+  background-color: rgba(200, 255, 200, 0.3);
 }
-#hoy .fecha-dia{
-    background-color: rgba(200, 255, 200, 1);
-}
-
-.no-lectivo{
-    background-color: rgba(255, 230, 230, .6);
+#hoy .fecha-dia {
+  background-color: rgba(200, 255, 200, 1);
 }
 
+.no-lectivo {
+  background-color: rgba(255, 230, 230, 0.6);
+}
 
 .no-lectivo .fecha-dia {
-    background-color: rgba(255, 230, 230, 1);
-    color: rgba(255, 50, 50, 1);
+  background-color: rgba(255, 230, 230, 1);
+  color: rgba(255, 50, 50, 1);
 }
 
 .no-lectivo .contenido-turnos {
   text-align: center;
   margin: 1.5em 0;
-  min-height: 3em; 
+  min-height: 3em;
   height: 3em;
   color: rgba(255, 50, 50, 1);
-
 }
 /*.fin-de-semana {
   display: none;
 }*/
+.etiqueta-nuevo,
+.etiqueta-cambio {
+  border-radius: 5px 0 5px 0;
+  color: white;
+  font-weight: bold;
+  font-size: 60%;
+  margin: auto;
+  padding: 0 0.5em 0 0.5em;
+  width: 1.8em;
+}
 .etiqueta-nuevo {
-    border-radius: 5px 0 5px 0;
-    background-color: red;
-    color: white;
-    font-weight: bold;
-    font-size: 60%;
-    margin: auto;
-    padding: 0 .5em 0 0.5em;
-    width: 1.8em;
-  }
-
-  .etiqueta-cambios {
-    border-radius: 5px 0 5px 0;
-    background-color: rgb(230, 165, 92);
-    color: white;
-    font-weight: bold;
-    font-size: 60%;
-    margin-left: .5em;
-    padding: 0 .5em 0 0.5em;
-    width: 1.8em;
-
-  }
-
-  .nombre-conductor {
-    font-weight: bolder;
-    font-size: 100%;
-  }
-
-  .nombres-acompanantes {
-    color: rgba(0,0,0, .5);
-    font-size: 90%;
-  }
-
-  .horario {
-    font-size: 80%;
-  }
-
-  .numero-y-cambios {
-    float: left;
-    width: 3em;
-    text-align: center;
-    border-right: 0pt solid rgba(200, 200, 255, .8);
-  }
-
-  .horas-y-personas {
-    float: left;
-    width: auto;
-    margin-left: 0.2em;
-    max-width: 70%;
+  background-color: rgb(233, 78, 44);
+}
+.etiqueta-cambio {
+  background-color: rgb(230, 165, 92);
 }
 
-  .info-turno {
-    border-bottom: 1px dashed rgba(200, 200, 255, 1);
-    margin: .1em;
+.nombre-conductor {
+  font-weight: bolder;
+  font-size: 100%;
+}
+
+.nombres-acompanantes {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 90%;
+}
+
+.horario {
+  font-size: 80%;
+}
+
+.numero-y-cambios {
+  float: left;
+  width: 3em;
+  text-align: center;
+  border-right: 0pt solid rgba(200, 200, 255, 0.8);
+}
+
+.horas-y-personas {
+  float: left;
+  width: auto;
+  margin-left: 0.2em;
+  max-width: 70%;
+}
+
+.info-turno {
+  border-bottom: 1px dashed rgba(200, 200, 255, 1);
+  margin: 0.1em;
+  clear: both;
+}
+.separador {
+  clear: both;
+}
+
+@media (max-width: 600px) {
+  .dia,
+  .dia-pantalla-completa {
+    max-width: 100%;
+    width: 100%;
     clear: both;
   }
-  .separador {
-    clear:both;
+  .dia-pantalla-completa {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0%;
   }
-
-
-  @media (max-width: 600px) {
-    .dia , .dia-pantalla-completa{
-        max-width: 100%;
-        width: 100%;
-        clear: both;
-    }
-    .dia-pantalla-completa{
-      width: 100%;
-      max-width: 100%;
-      margin-left: 0%;
-    }
-    main #titulo {
-        width: 100%;
-        font-size: 130%;
-        border-radius: 2px;
-    }
-    
+  main #titulo {
+    width: 100%;
+    font-size: 130%;
+    border-radius: 2px;
   }
+}

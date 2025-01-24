@@ -20,12 +20,7 @@ Estefanía: 7:30-14:30
 Jose Matas, Gustavo Reyes: 8:30-14:30 
 
 */
-T.push(
-  new Turno(C_MARTES, nTurno++, "09:30", "16:30", [
-    C_INMA_BARROSO,
-  ]).addComentarios("Nacho: a partir del 18 de febrero")
-  //TODO: Añadir a Nacho 18 de febrero
-);
+T.push(new Turno(C_MARTES, nTurno++, "09:30", "16:30", [C_INMA_BARROSO]));
 T.push(
   new Turno(C_MARTES, nTurno++, "08:30", "19:30", [
     C_JMF,
@@ -72,7 +67,6 @@ T.push(
     C_DAVID,
   ])
 );
-// TODO: Añadir a Ángel 13 de febrero
 T.push(new Turno(C_JUEVES, nTurno++, "15:30", "20:30", [C_PILAR]));
 
 /*
@@ -116,8 +110,10 @@ function modificaciones_posteriores(dia) {
   /* --- 
   Añadir conductor/a
   --- */
-  if (fechaEs(fecha, 21, 11, 2024))
-    aniadirConductor(15, C_MAYCA, 1, "el 21/nov", 1);
+  if (fechaEs(fecha, 18, 2, 2025))
+    aniadirConductor(4, C_NACHO, 1, "el 18/feb", 1);
+  if (fechaEs(fecha, 13, 2, 2025))
+    aniadirConductor(16, C_ANGEL, 1, "el 13/feb", 1);
 
   // Los lunes siempre Victor, los jueves siempre Angel
   //coches[2].setContador(0);
