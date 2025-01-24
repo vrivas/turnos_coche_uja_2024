@@ -124,7 +124,7 @@ main #contenido {
 }
 
 .info-turno {
-  border-bottom: 1px dashed rgba(100, 100, 255, 1);
+  border-top: 1px dashed rgba(100, 100, 255, 1);
   padding: 1em 0.1em 2.5em 0.1em;
   clear: both;
 }
