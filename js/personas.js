@@ -5,32 +5,31 @@ var P = [];
  */
 
 function Persona(_nombre, _correo) {
-    this.nombre = _nombre;
-    this.correo = _correo;
-    this.conducciones = [];
-    this.activo = false;
-    /**
-       * Método que se invoca cada vez que tiene que conducir
-       * @return El nombre que ha de poner en la página web
-       */
-    this.conduce = function (_fecha, _turno) {
-        this.conducciones.push({
-            "fecha": new Date(_fecha)
-            , "turno": _turno
-        });
-        this.activo = true;
-        return this.nombre;
-    }
-
-    // Añado el nuevo objeto al vector de nombres
-    P.push(this);
-
-    // Ordeno el vector
-    P.sort(function (a, b) {
-        return (a.nombre > b.nombre ? 1 : (a.nombre == b.nombre) ? 0 : -1);
+  this.nombre = _nombre;
+  this.correo = _correo;
+  this.conducciones = [];
+  this.activo = false;
+  /**
+   * Método que se invoca cada vez que tiene que conducir
+   * @return El nombre que ha de poner en la página web
+   */
+  this.conduce = function (_fecha, _turno) {
+    this.conducciones.push({
+      fecha: new Date(_fecha),
+      turno: _turno,
     });
-}
+    this.activo = true;
+    return this.nombre;
+  };
 
+  // Añado el nuevo objeto al vector de nombres
+  P.push(this);
+
+  // Ordeno el vector
+  P.sort(function (a, b) {
+    return a.nombre > b.nombre ? 1 : a.nombre == b.nombre ? 0 : -1;
+  });
+}
 
 // ordenados por nombre de variable C_XXXX
 var C_ALBA = new Persona("Alba de la Cruz", "aredondo@ujaen.es");
@@ -42,7 +41,7 @@ var C_ANTONIO = new Persona("Antonio", "ajrueda@ujaen.es");
 
 var C_ANTONIO_CEPEDA = new Persona("Antonio Cepeda", "acepeda@uvm.edu");
 
-var C_ANYELY = new Persona("Anyely", "anyely_1986@hotmail.com")
+var C_ANYELY = new Persona("Anyely", "anyely_1986@hotmail.com");
 // var C_CARLOS_MOLINA = new Persona("Carlos Molina", "carlosmo@ujaen.es");
 //var C_CARLOS_PORCEL   = new Persona( "Carlos Porcel","cporcel@ujaen.es" );
 var C_CARMEN = new Persona("Carmen Martínez", "cmcruz@ujaen.es");
@@ -61,6 +60,7 @@ var C_GUSTAVO = new Persona("Gustavo", "greyes@ujaen.es");
 var C_INMA_BARROSO = new Persona("Inma Barroso", "ibarroso@ujaen.es");
 var C_INMA_GARCIA = new Persona("Inma Garcia", "igmartin@ujaen.es");
 var C_J_ALBERTO = new Persona("José Alberto", "jamoleon@ujaen.es");
+var C_J_MATAS = new Persona("José Matas", "matas@ujaen.es");
 var C_JAVIER = new Persona("Javier Pérez", "jppadill@ujaen.es");
 var C_JMF = new Persona("José Manuel", "jmf@ujaen.es");
 var C_JOAQUIN = new Persona("Joaquin", "jjodar@ujaen.es");
@@ -70,7 +70,6 @@ var C_JUAN_FRANCISCO = new Persona("Juan Francisco", "jfruiz@ujaen.es");
 //var C_JUAN            = new Persona( "Juan" , "demiras@ujaen.es" );
 var C_LAURA_RUBIO = new Persona("Laura Rubio", "lrubio@ujaen.es");
 var C_LAURA_MICCOLI = new Persona("Laura M.", "lmiccoli@ujaen.es");
-
 
 var C_LIDIA = new Persona("Lidia", "lidia@ujaen.es");
 var C_M_CRUZ = new Persona("Mari Cruz", "mcgarcia@ujaen.es");
