@@ -131,7 +131,16 @@ main #contenido {
 .separador {
   clear: both;
 }
-
+.num-turno {
+  font-weight: bold;
+  color: rgba(100, 100, 255, 0.8);
+  margin: 3px;
+  border-bottom: 1px solid rgba(100, 100, 255, 1);
+  border-right: 1px solid rgba(100, 100, 255, 1);
+  border-top: 1px solid rgba(100, 100, 255, 0.3);
+  border-left: 1px solid rgba(100, 100, 255, 0.3);
+  border-radius: 3px;
+}
 @media (max-width: 600px) {
   .dia,
   .dia-pantalla-completa {
