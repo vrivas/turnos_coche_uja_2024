@@ -13,8 +13,17 @@ const NOMBRE_MESES_3_LETRAS = [
   "dic",
 ];
 const NOMBRE_DIAS_3_LETRAS = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
+
 function fecha(dia, mes, anio) {
   return new Date(anio, mes - 1, dia);
+}
+
+function fechaEs(fecha, dia, mes, anio) {
+  return (
+    fecha.getDate() == dia &&
+    fecha.getMonth() == mes - 1 &&
+    fecha.getFullYear() == anio
+  );
 }
 
 function cerear(num, tam) {

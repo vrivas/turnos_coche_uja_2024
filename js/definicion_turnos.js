@@ -80,3 +80,64 @@ Viernes:
 Víctor: 09:15-13:30
 */
 T.push(new Turno(C_VIERNES, nTurno++, "09:15", "13:30", [C_VICTOR]));
+
+// Función donde añadimos las modificaciones que se van produciendo en los turnos.
+
+function modificaciones_posteriores(dia) {
+  var fecha = dia.fecha;
+
+  var tmpCo;
+  /* ----
+   Comienzo de un turno más tarde
+   --- */
+
+  if (fechaEs(fecha, 16, 9, 2024)) {
+    aniadeCoche(C_LUNES, "08:30", "14:30", "", "", [
+      C_ESTEFANIA,
+      C_ALFONSO,
+      C_LIDIA,
+    ]).addComentarios("a partir del 16 de septiembre");
+  }
+  /* ---
+  Cambio de hora salida y/o vuelta de un coche
+ --- */
+  if (fechaEs(fecha, 13, 11, 2024)) {
+    coches[4].hora_j = "12:30";
+    coches[4].hayCambios();
+  }
+
+  /* ----
+   Eliminación de un turno
+   --- */
+  //Jose Alberto, Inma: 8:30 - 17:30 (Este turno dura hasta el 26 de febrero inclusive)
+
+  if (fechaEs(fecha, 27, 2, 2024)) cancelarTurno(3, "27/feb");
+
+  /* --- 
+  Añadir conductor/a
+  --- */
+  if (fechaEs(fecha, 21, 11, 2024))
+    aniadirConductor(15, C_MAYCA, 1, "el 21/nov", 1);
+
+  // Los lunes siempre Victor, los jueves siempre Angel
+  //coches[2].setContador(0);
+  //coches[17].setContador(1);
+
+  /* ----
+  Una persona se sale del turno
+  --- */
+
+  if (fechaEs(fecha, 19, 3, 2024))
+    eliminarConductor(7, C_ALFONSO, "el 18/mar", 1);
+
+  /* ----
+   Alteración de turnos para que NO coincida el mismo conductor cada semana
+   --- */
+  //if (fechaEs(i, 4, 10, 2022)) coches[6].setContador(1);
+
+  /* -----
+  | Un día concreto no va un turno
+  --- */
+  if (fechaEs(fecha, 14, 2, 2024)) sinTurno(11, 3, "Huelga de agricultores", 3);
+  //if( fechaEs(dia, 15, 2, 2024) ) eliminarConductor(11, C_SIN_TURNO, "",2)
+}
