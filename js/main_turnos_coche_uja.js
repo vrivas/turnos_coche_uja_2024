@@ -13,8 +13,14 @@ function mostrarDias(titulo, dias = [], clases = []) {
       : msj;
   divContenido.innerHTML = msj;
 }
+
+function cerrarBotonX() {
+  document.getElementsByName("close-outline")[0].click();
+}
+
 function mostrarDiasCuatrimestre() {
   mostrarDias(cuatrimestre.getTitulo(), D);
+  cerrarBotonX();
 }
 
 function mostrarDiaHoy() {
@@ -25,6 +31,7 @@ function mostrarDiaHoy() {
     D.filter((d) => d.fecha.toComparableString() == hoy.toComparableString()),
     ["dia-pantalla-completa"]
   );
+  cerrarBotonX();
 }
 function mostrarDiasSemana() {
   let hoy = new Date();
@@ -37,6 +44,7 @@ function mostrarDiasSemana() {
     "Semana, " + hoy.toDD_MMM_YYYY(),
     D.slice(posicion - diaSemana + 1, posicion - diaSemana + 8)
   );
+  cerrarBotonX();
 }
 
 // Por defecto, mostramos los días del cuatrimestre
