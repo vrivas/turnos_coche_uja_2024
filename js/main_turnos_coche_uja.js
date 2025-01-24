@@ -71,5 +71,16 @@ function mostrarTurnos() {
   }
   cerrarBotonX();
 }
+
+// Mostramos la información de todas las personas
+function mostrarPersonas() {
+  let divs = [];
+
+  P.filter((p) => p.activo).forEach((p) => {
+    divs.push(personaToDiv(p));
+  });
+  mostrarInfo("Info Turnos", divs);
+  cerrarBotonX();
+}
 // Por defecto, mostramos los días del cuatrimestre
 mostrarDiasCuatrimestre();

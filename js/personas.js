@@ -31,6 +31,17 @@ function Persona(_nombre, _correo) {
   });
 }
 
+function personaToDiv(p) {
+  let divNombre = `<div class='persona'>${p.nombre}</div>`;
+  let divCorreo = `<div class='correo'>${p.correo}</div>`;
+  let divConducciones = "";
+  p.conducciones.forEach((c) => {
+    divConducciones += `<div class='conduccion'>${c.fecha.toDD_MMM()} ${
+      c.turno
+    }</div>`;
+  });
+  return `<div class='info-persona'>${divNombre}${divCorreo}${divConducciones}</div>`;
+}
 // ordenados por nombre de variable C_XXXX
 var C_ALBA = new Persona("Alba de la Cruz", "aredondo@ujaen.es");
 var C_ALFONSO = new Persona("Alfonso", "aontiver@ujaen.es");
