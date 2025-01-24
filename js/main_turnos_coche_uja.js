@@ -62,10 +62,14 @@ function mostrarDiasSemana() {
 // Mostramos la información de todos los turnos
 function mostrarTurnos() {
   let divs = [];
-  T.forEach((t) => {
-    divs.push(infoTurnoToInfoDiv(t));
-  });
-  mostrarInfo("Turnos", divs);
+  for (i = C_LUNES; i <= C_VIERNES; i++) {
+    divs.push(`<div class='info-dia'>${NOMBRE_DIAS[i]}</div>`);
+    T.filter((t) => t.dia == i).forEach((t) => {
+      divs.push(infoTurnoToInfoDiv(t));
+    });
+    mostrarInfo("Info Turnos", divs);
+  }
+  cerrarBotonX();
 }
 // Por defecto, mostramos los días del cuatrimestre
 mostrarDiasCuatrimestre();
