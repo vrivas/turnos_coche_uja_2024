@@ -150,6 +150,20 @@ main #contenido {
   font-size: smaller;
   color: rgba(0, 0, 0, 0.8);
 }
+.info-persona {
+  border-top: 1px dashed rgba(100, 100, 255, 1);
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+.conducciones {
+  padding-left: 2em;
+}
+b {
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+}
 @media (max-width: 600px) {
   .dia,
   .dia-pantalla-completa {

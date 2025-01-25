@@ -18,6 +18,7 @@ const NOMBRE_DIAS = [
   "Martes",
   "Miércoles",
   "Jueves",
+  "Viernes",
   "Sábado",
 ];
 const NOMBRE_DIAS_3_LETRAS = NOMBRE_DIAS.map((d) => d.substring(0, 3));

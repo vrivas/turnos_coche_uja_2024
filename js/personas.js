@@ -32,15 +32,20 @@ function Persona(_nombre, _correo) {
 }
 
 function personaToDiv(p) {
-  let divNombre = `<div class='persona'>${p.nombre}</div>`;
-  let divCorreo = `<div class='correo'>${p.correo}</div>`;
-  let divConducciones = "";
+  let divNombreYCorreo = `<div class='persona'>${p.nombre} (<em>${p.correo}</em>)</div>`;
+  //let divCorreo = `<div class='correo'></div>`;
+  let divConducciones =
+    "<div class='conducciones'>" +
+    "<b>" +
+    p.conducciones.length +
+    " conducciones: </b>";
   p.conducciones.forEach((c) => {
-    divConducciones += `<div class='conduccion'>${c.fecha.toDD_MMM()} ${
-      c.turno
-    }</div>`;
+    divConducciones += `${c.fecha.toDW_DD_MMM_YYYY()} (Turno ${c.turno}); `;
   });
-  return `<div class='info-persona'>${divNombre}${divCorreo}${divConducciones}</div>`;
+  divConducciones =
+    divConducciones.substring(0, divConducciones.length - 2) + ".";
+  divConducciones += "</div>";
+  return `<div class='info-persona'>${divNombreYCorreo}${divConducciones}</div>`;
 }
 // ordenados por nombre de variable C_XXXX
 var C_ALBA = new Persona("Alba de la Cruz", "aredondo@ujaen.es");

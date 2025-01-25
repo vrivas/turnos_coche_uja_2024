@@ -91,13 +91,19 @@ function rellenaDias() {
             comparaFechas(t.fechaInicio, d) <= 0 &&
             comparaFechas(t.fechaFin, d) >= 0
           ) {
-            dia.addInfoTurno(t.getInfoParaDia());
+            let info = t.getInfoParaDia();
+            P.find((p) => p.nombre == info.conductor).conducciones.push({
+              fecha: new Date(d),
+              turno: info.numTurno,
+            });
+            dia.addInfoTurno(info);
           }
         }
       }
     }
 
     D.push(dia);
+
     d.setDate(d.getDate() + 1);
   }
 }
