@@ -96,18 +96,26 @@ function rellenarPreferenciasCorreo(evt) {
   }
 }
 
+function actualizaDatosMostradosUsuario() {
+  if (
+    PREFERENCIAS_USUARIO.correo != null &&
+    PREFERENCIAS_USUARIO.correo != ""
+  ) {
+    document.getElementById("nombreUsuarioMostrado").innerHTML =
+      PREFERENCIAS_USUARIO.nombre;
+
+    document.getElementById("emailUsuarioMostrado").innerHTML =
+      PREFERENCIAS_USUARIO.correo;
+  }
+}
+
 function aceptarPreferencias() {
   PREFERENCIAS_USUARIO.correo = document.getElementById("emailSettings").value;
   PREFERENCIAS_USUARIO.nombre =
     document.getElementById("nombreSettings").innerHTML;
-  setCookie("preferencias", JSON.stringify(PREFERENCIAS_USUARIO), 365 * 10);
-}
-
-function cargarPreferencias() {
-  let preferencias = getCookie("preferencias");
-  if (preferencias != "") {
-    PREFERENCIAS_USUARIO = JSON.parse(preferencias);
-  }
+  guardarPreferencias();
+  actualizaDatosMostradosUsuario();
+  mostrarDiasCuatrimestre();
 }
 
 function mostrarPreferencias() {
@@ -117,10 +125,10 @@ function mostrarPreferencias() {
   );
 
   divs.push(
-    `<div class='preferencias-correo'><b>Indica tu correo:</b> <input id='emailSettings' type='text' size='20' value='${PREFERENCIAS.correo}' nombreAntiguo='${PREFERENCIAS.nombre}'></div>`
+    `<div class='preferencias-correo'><b>Indica tu correo:</b> <input id='emailSettings' type='text' size='20' value='${PREFERENCIAS_USUARIO.correo}' nombreAntiguo='${PREFERENCIAS_USUARIO.nombre}'></div>`
   );
   divs.push(
-    `<div class='preferencias-nombre'><b>Nombre: </b><span  id='nombreSettings'>${PREFERENCIAS.nombre}</span></div>`
+    `<div class='preferencias-nombre'><b>Nombre: </b><span  id='nombreSettings'>${PREFERENCIAS_USUARIO.nombre}</span></div>`
   );
 
   divs.push(
@@ -136,9 +144,13 @@ function mostrarPreferencias() {
     .getElementById("emailSettings")
     .addEventListener("keyup", rellenarPreferenciasCorreo);
   document
-    .getElementById("aceeptarSettings")
+    .getElementById("aceptarSettings")
     .addEventListener("click", aceptarPreferencias);
+  cerrarBotonX();
 }
 
+// Cargamos las preferencias del usuario y actuamos en consecuencia
+cargarPreferencias();
+actualizaDatosMostradosUsuario();
 // Por defecto, mostramos los días del cuatrimestre
 mostrarDiasCuatrimestre();
