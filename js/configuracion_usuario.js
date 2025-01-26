@@ -10,4 +10,5 @@ let USER_CONFIG = {
   nombre: null,
   correo: null,
   vistaPorDefecto: null,
+  aceptaCookies: false,
 };
