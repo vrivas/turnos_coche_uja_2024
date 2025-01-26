@@ -82,5 +82,63 @@ function mostrarPersonas() {
   mostrarInfo("Info Turnos", divs);
   cerrarBotonX();
 }
+
+function rellenarPreferenciasCorreo(evt) {
+  const texto = evt.target.value;
+  let coinciden = P.filter((p) => p.correo.substr(0, texto.length) == texto);
+  if (coinciden.length == 1) {
+    evt.target.value = coinciden[0].correo;
+    document.getElementById("nombreSettings").innerHTML = coinciden[0].nombre;
+  } else {
+    evt.target.value = texto;
+    document.getElementById("nombreSettings").innerHTML =
+      evt.target.getAttribute("nombreAntiguo");
+  }
+}
+
+function aceptarPreferencias() {
+  PREFERENCIAS_USUARIO.correo = document.getElementById("emailSettings").value;
+  PREFERENCIAS_USUARIO.nombre =
+    document.getElementById("nombreSettings").innerHTML;
+  setCookie("preferencias", JSON.stringify(PREFERENCIAS_USUARIO), 365 * 10);
+}
+
+function cargarPreferencias() {
+  let preferencias = getCookie("preferencias");
+  if (preferencias != "") {
+    PREFERENCIAS_USUARIO = JSON.parse(preferencias);
+  }
+}
+
+function mostrarPreferencias() {
+  let divs = [];
+  divs.push(
+    `<div class='aceptaCookies'>Al establecer tus preferencias, estás aceptando las cookies que usa esta web.</div>`
+  );
+
+  divs.push(
+    `<div class='preferencias-correo'><b>Indica tu correo:</b> <input id='emailSettings' type='text' size='20' value='${PREFERENCIAS.correo}' nombreAntiguo='${PREFERENCIAS.nombre}'></div>`
+  );
+  divs.push(
+    `<div class='preferencias-nombre'><b>Nombre: </b><span  id='nombreSettings'>${PREFERENCIAS.nombre}</span></div>`
+  );
+
+  divs.push(
+    `<div class='preferencias-aceptar'><button id='aceptarSettings'>Aceptar</button></div>`
+  );
+  /*divs.push(
+    `<div class='vistaPorDefecto'>${PREFERENCIAS.vistaPorDefecto}</div>`
+  );*/
+  /*divs.push(`<div class='aceptaCookies'>${PREFERENCIAS.aceptaCookies}</div>`);*/
+
+  mostrarInfo("Preferencias", divs);
+  document
+    .getElementById("emailSettings")
+    .addEventListener("keyup", rellenarPreferenciasCorreo);
+  document
+    .getElementById("aceeptarSettings")
+    .addEventListener("click", aceptarPreferencias);
+}
+
 // Por defecto, mostramos los días del cuatrimestre
 mostrarDiasCuatrimestre();
