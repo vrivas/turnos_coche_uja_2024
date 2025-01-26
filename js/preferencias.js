@@ -6,7 +6,7 @@
  * @date 26-ene-2025
  */
 
-let USER_CONFIG = {
+let PREFERENCIAS = {
   nombre: null,
   correo: null,
   vistaPorDefecto: null,
