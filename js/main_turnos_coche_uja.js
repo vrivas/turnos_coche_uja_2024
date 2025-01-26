@@ -12,8 +12,19 @@ function mostrarDias(titulo, dias = [], clases = []) {
       ? "No se ha encontrado ningún turno operativo en este periodo"
       : msj;
   divContenido.innerHTML = msj;
+  setTimeout(ocultarNoMiTurno, 5 * 1000);
 }
 
+function ocultarNoMiTurno() {
+  if (
+    PREFERENCIAS_USUARIO.correo != "" &&
+    PREFERENCIAS_USUARIO.correo != null
+  ) {
+    document
+      .querySelectorAll(".no-mi-turno")
+      .forEach((e) => (e.style.display = "none"));
+  }
+}
 function mostrarInfo(titulo, divs = [], clases = []) {
   let divTitulo = document.getElementById("titulo");
   let divContenido = document.getElementById("contenido");

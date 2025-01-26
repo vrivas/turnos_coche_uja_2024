@@ -108,4 +108,5 @@ function rellenaDias() {
   }
 }
 
+// Función principal
 rellenaDias();

@@ -81,10 +81,16 @@ function Turno(
       hora_gr: this.hora_gr,
       hora_j: this.hora_j,
       conductor: this.personas[this.contador].nombre,
+      correo_conductor: this.personas[this.contador].correo,
       acompanantes: this.personas
         .slice(0, this.contador)
         .concat(this.personas.slice(this.contador + 1))
         .map((p) => p.nombre),
+      correos_acompanantes: this.personas
+        .slice(0, this.contador)
+        .concat(this.personas.slice(this.contador + 1))
+        .map((p) => p.correo)
+        .join(","),
       lugar: this.lugar,
       comentarios: this.comentarios,
       desdoblarSi5: this.desdoblarSi5,
@@ -149,6 +155,19 @@ function infoTurnoToDiv(info) {
   if (info == null) return "";
   let msj = "";
   let clasesInfoTurno = ["info-turno"];
+  if (info.correo_conductor == PREFERENCIAS_USUARIO.correo)
+    clasesInfoTurno.push("soy-conductor");
+  if (info.correos_acompanantes.includes(PREFERENCIAS_USUARIO.correo))
+    clasesInfoTurno.push("soy-acompanante");
+
+  if (
+    PREFERENCIAS_USUARIO.correo != "" &&
+    PREFERENCIAS_USUARIO.correo != null &&
+    !info.correos.includes(PREFERENCIAS_USUARIO.correo)
+  ) {
+    clasesInfoTurno.push("no-mi-turno");
+    clasesInfoTurno.push("fade-out");
+  }
   let divNumTurno = `<div class='num-turno'>${cerear(info.numTurno)}</div>`;
   let divNuevo = info.nuevo ? "<div class='etiqueta-nuevo'>N</div>" : "";
   let divCambio = info.cambio ? "<div class='etiqueta-cambio'>M</div>" : "";
@@ -156,10 +175,21 @@ function infoTurnoToDiv(info) {
     ? `<span class="lugar">${info.lugar}</span><br/>`
     : "";
   let divHorario = `<div class='horario'>${spanLugar}${info.hora_gr}↔${info.hora_j}</div>`;
-  let spanConductor = `<span class="nombre-conductor">${info.conductor}</span>`;
+  // Compruebo si conduce o si es acompañante
+  const clasesConductor = "nombre-conductor "; /*+
+    (info.correo_conductor == PREFERENCIAS_USUARIO.correo
+      ? "soy-conductor"
+      : "");*/
+
+  const clasesAcompanantes = "nombres-acompanantes "; /*+
+    (info.correos_acompanantes.includes(PREFERENCIAS_USUARIO.correo)
+      ? "soy-acompanante"
+      : "");*/
+
+  let spanConductor = `<span class="${clasesConductor}">${info.conductor}</span>`;
   let spanAcompanantes =
     info.acompanantes.length > 0
-      ? `<span class="nombres-acompanantes">(${info.acompanantes.join(
+      ? `<span class="${clasesAcompanantes}">(${info.acompanantes.join(
           ", "
         )})</span>`
       : "";

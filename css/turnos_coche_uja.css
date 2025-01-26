@@ -164,6 +164,29 @@ b {
 em {
   font-style: italic;
 }
+
+.soy-conductor {
+  background-color: rgba(200, 200, 250, 0.5);
+}
+.soy-acompanante {
+  background-color: rgba(200, 200, 250, 0.3);
+}
+.fade-out {
+  opacity: 0;
+  animation: fade-out 5s;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 @media (max-width: 600px) {
   .dia,
   .dia-pantalla-completa {
