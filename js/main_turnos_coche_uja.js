@@ -160,6 +160,15 @@ function mostrarPreferencias() {
   cerrarBotonX();
 }
 
+function mostrarUbicaciones() {
+  let divs = [];
+  divs.push(
+    `<div>Accede a la  <a target="new" href="https://maps.app.goo.gl/CQgTMidJJmatrsEk6">lista de puntos de encuentro</a>.<br>Se abre en una ventana nueva.</div>`
+  );
+  mostrarInfo("Ubicaciones", divs);
+
+  cerrarBotonX();
+}
 // Cargamos las preferencias del usuario y actuamos en consecuencia
 cargarPreferencias();
 actualizaDatosMostradosUsuario();
