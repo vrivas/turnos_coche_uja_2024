@@ -18,7 +18,7 @@ let cuatrimestre = {
       fin: fecha(20, 4, 2025),
     },
     { nombre: "Día de Andalucía", inicio: fecha(28, 2, 2025) },
-    { nombre: "Día del (NO) Trabajo", inicio: fecha(1, 5, 2024) },
+    { nombre: "Día del (NO) Trabajo", inicio: fecha(1, 5, 2025) },
   ], // Festivos segundo cuatrim*/
 
   getTitulo: function () {
