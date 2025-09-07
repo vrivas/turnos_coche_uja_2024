@@ -50,42 +50,77 @@ T.push(
 
 /*
 Miércoles:
+Susana, Mayca: 8:20 - 14:30 (Mayca: hasta el 30 de noviembre)
+Joaquín: 14:30 - 18:30
+Inma, Estefanía, Gustavo: 8:30 - 14:30
+Nacho, Lidia: 12:45 - 17:30
+Gema: 7:15 - 14 o 14:30 (flexible)
+José Manuel, Antonio, Paco luis : 8:30 - 19:30
 
 
 */
-T.push(new Turno(C_MIERCOLES, nTurno++, "08:15", "13:30", [C_SUSANA]));
 T.push(
-  new Turno(C_MIERCOLES, nTurno++, "07:30", "14:00", [C_ESTEFANIA, C_VICTOR])
+  new Turno(C_MIERCOLES, nTurno++, "08:20", "14:30", [
+    C_SUSANA,
+    C_MAYCA,
+  ]).addComentarios("Mayca: hasta el 30 de noviembre")
 );
+T.push(new Turno(C_MIERCOLES, nTurno++, "14:30", "18:30", [C_JOAQUIN]));
 T.push(
-  new Turno(C_MIERCOLES, nTurno++, "08:30", "14:30", [C_JOSE_MATAS, C_GUSTAVO])
-);
-T.push(
-  new Turno(C_MIERCOLES, nTurno++, "08:30", "19:30", [C_JMF, C_PACO_LUIS])
-);
-T.push(new Turno(C_MIERCOLES, nTurno++, "08:30", "17:30", [C_LIDIA]));
-/*
-Jueves:
-Nacho,Lidia (pendiente de cambio de horario): 8:30-17:30
-Jose Matas, Gustavo Reyes, David, Ángel (Ángel: a partir del 13 de febrero): 8:30-14:30
-Pilar Sánchez: 15:30-20:30
-
-*/
-T.push(new Turno(C_JUEVES, nTurno++, "08:30", "17:30", [C_NACHO, C_LIDIA]));
-T.push(
-  new Turno(C_JUEVES, nTurno++, "08:30", "14:30", [
-    C_JOSE_MATAS,
+  new Turno(C_MIERCOLES, nTurno++, "08:30", "14:30", [
+    C_INMA_BARROSO,
+    C_ESTEFANIA,
     C_GUSTAVO,
-    C_DAVID,
   ])
 );
-T.push(new Turno(C_JUEVES, nTurno++, "15:30", "20:30", [C_PILAR]));
+T.push(new Turno(C_MIERCOLES, nTurno++, "12:45", "17:30", [C_NACHO, C_LIDIA]));
+T.push(
+  new Turno(C_MIERCOLES, nTurno++, "07:15", "14:00", [C_GEMA]).addComentarios(
+    "14 o 14:30, flexible"
+  )
+);
+T.push(
+  new Turno(C_MIERCOLES, nTurno++, "08:30", "19:30", [
+    C_JMF,
+    C_ANTONIO,
+    C_PACO_LUIS,
+  ])
+);
+/*
+Jueves:
+Susana: 8:20 - 13:30 
+Joaquín: 7:30 - 20:30
+Mayca: 14,20- 19,30 o 20,30 (hasta 30 noviembre)
+José Manuel: 8:30 - 19:30
+Lidia: 9:00 (flexible) - 17:30
+
+*/
+T.push(new Turno(C_JUEVES, nTurno++, "08:20", "13:30", [C_SUSANA]));
+T.push(new Turno(C_JUEVES, nTurno++, "07:30", "20:30", [C_JOAQUIN]));
+T.push(
+  new Turno(C_JUEVES, nTurno++, "14:20", "19:30", [C_MAYCA]).addComentarios(
+    "o 20:30, hasta 30 noviembre"
+  )
+);
+T.push(new Turno(C_JUEVES, nTurno++, "08:30", "19:30", [C_JMF]));
+T.push(
+  new Turno(C_JUEVES, nTurno++, "09:00", "17:30", [C_LIDIA]).addComentarios(
+    "flexible la salida a las 09:00"
+  )
+);
 
 /*
 Viernes:
-Víctor: 09:15-13:30
+Mayca: 8:20-13,30  (hasta el 30 de noviembre)
+Ángel: 9:30 - 17:30
+
 */
-T.push(new Turno(C_VIERNES, nTurno++, "09:15", "13:30", [C_VICTOR]));
+T.push(
+  new Turno(C_VIERNES, nTurno++, "08:20", "13:30", [C_MAYCA]).addComentarios(
+    "hasta el 30 de noviembre"
+  )
+);
+T.push(new Turno(C_VIERNES, nTurno++, "09:30", "17:30", [C_ANGEL]));
 
 // Función donde añadimos las modificaciones que se van produciendo en los turnos.
 
@@ -116,6 +151,8 @@ function modificaciones_posteriores(dia) {
    Eliminación de un turno
    --- */
   if (fechaEs(fecha, 5, 11, 2025)) cancelarTurno(4, "4/nov");
+  if (fechaEs(fecha, 1, 12, 2025)) cancelarTurno(18, "30/nov");
+  if (fechaEs(fecha, 1, 12, 2025)) cancelarTurno(21, "30/nov");
 
   /* --- 
   Añadir conductor/a
@@ -133,8 +170,9 @@ function modificaciones_posteriores(dia) {
   Una persona se sale del turno
   --- */
 
-  if (fechaEs(fecha, 19, 3, 2024))
-    eliminarConductor(7, C_ALFONSO, "el 18/mar", 1);
+  if (fechaEs(fecha, 5, 11, 2025)) eliminarConductor(6, C_ANGEL, "el 5/nov", 0);
+  if (fechaEs(fecha, 1, 12, 2025))
+    eliminarConductor(10, C_MAYCA, "el 30/nov", 0);
 
   /* ----
    Alteración de turnos para que NO coincida el mismo conductor cada semana

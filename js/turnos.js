@@ -228,6 +228,26 @@ function cancelarTurno(numCoche, comentario) {
   var tmpCo = T[numCoche - 1];
   if (tmpCo) tmpCo.cancelar(comentario);
 }
+
+// Función para eliminar un conductor de un turno
+function eliminarConductor(numCoche, conductor, comentario, contador) {
+  var tmpCo = T[numCoche - 1];
+  if (tmpCo) {
+    var pos = tmpCo.personas.indexOf(conductor);
+    if (pos >= 0) {
+      tmpCo.personas = tmpCo.personas
+        .slice(0, pos)
+        .concat(tmpCo.personas.slice(pos + 1));
+      if (tmpCo.personas.length == 0) {
+        tmpCo.personas = [C_CANCELADO];
+      }
+      tmpCo
+        .setContador(contador)
+        .addComentarios("Se elimina a " + conductor.nombre + " " + comentario)
+        .hayCambios();
+    }
+  }
+}
 // Constantes para los días de la semana
 const C_LUNES = 1;
 const C_MARTES = 2;
