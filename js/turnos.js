@@ -105,7 +105,7 @@ function Turno(
     this.cambio = false;
     return info;
   };
-}
+} // Fin clase Turno
 
 function infoTurnoToInfoDiv(turno) {
   if (turno == null) return "A";
@@ -220,6 +220,12 @@ function aniadirConductor(numCoche, conductor, posicion, comentario, contador) {
       .addProfesor(conductor, posicion, comentario)
       .setContador(contador)
       .hayCambios();
+}
+
+// Clase para cancelar un turno llamando a su método cancelar
+function cancelarTurno(numCoche, comentario) {
+  var tmpCo = T[numCoche - 1];
+  if (tmpCo) tmpCo.cancelar(comentario);
 }
 // Constantes para los días de la semana
 const C_LUNES = 1;

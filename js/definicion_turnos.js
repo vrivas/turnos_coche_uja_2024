@@ -1,45 +1,56 @@
 /*
 Lunes: 
-Nacho,Lidia: 08:30-13:30
-David, Inma: 8:30-19:30
-Víctor: 09:15-17:30
+Nacho, Víctor: 9:30 - 17:30
+Estefanía: 8:30 - 14:30
+Alfonso: 7:30-13:30
 */
-T.push(new Turno(C_LUNES, nTurno++, "08:30", "13:30", [C_NACHO, C_LIDIA]));
-T.push(
-  new Turno(C_LUNES, nTurno++, "08:30", "19:30", [C_DAVID, C_INMA_BARROSO])
-);
-T.push(new Turno(C_LUNES, nTurno++, "09:15", "17:30", [C_VICTOR]));
+
+T.push(new Turno(C_LUNES, nTurno++, "09:30", "17:30", [C_NACHO, C_VICTOR]));
+T.push(new Turno(C_LUNES, nTurno++, "08:30", "14:30", [C_ESTEFANIA]));
+T.push(new Turno(C_LUNES, nTurno++, "07:30", "13:30", [C_ALFONSO]));
 
 /*
 Martes:
-Nacho, Inma: 9:30-16:30 (Nacho: a partir del 18 de febrero)
-José Manuel, Paco Luis, Ángel, Antonio Rueda : 8:30-19:30
-
-Susana: 8:15 - 13:30
-Estefanía: 7:30-14:30
-Jose Matas, Gustavo Reyes: 8:30-14:30 
-
+Martes:
+Susana: 8:20 - 13:30 (hasta el 4 de noviembre)
+Joaquín: 7:30 - 14:30
+Inma, Estefanía, Lidia, Ángel : 8:30 - 14:30 (Angel: en principio hasta primeros de noviembre)
+Jose Alberto: 8:30 - 17:30 (vuelta flexible)
+Alfonso: 7:30-13:30
+Gustavo, David: 8,30-14,30 h (quizás somos muchos para ir en el turno de Inma, ¿cómo lo veis?)
 */
-T.push(new Turno(C_MARTES, nTurno++, "09:30", "16:30", [C_INMA_BARROSO]));
 T.push(
-  new Turno(C_MARTES, nTurno++, "08:30", "19:30", [
-    C_JMF,
-    C_PACO_LUIS,
-    C_ANTONIO,
-    C_ANGEL,
-  ])
+  new Turno(C_MARTES, nTurno++, "08:20", "13:30", [C_SUSANA]).addComentarios(
+    "hasta el 4 de noviembre"
+  )
 );
-T.push(new Turno(C_MARTES, nTurno++, "08:15", "13:30", [C_SUSANA]));
-T.push(new Turno(C_MARTES, nTurno++, "07:30", "14:30", [C_ESTEFANIA]));
-T.push(new Turno(C_MARTES, nTurno++, "08:30", "14:30", [C_J_MATAS, C_GUSTAVO]));
+T.push(new Turno(C_MARTES, nTurno++, "07:30", "14:30", [C_JOAQUIN]));
+T.push(
+  new Turno(C_MARTES, nTurno++, "08:30", "14:30", [
+    C_INMA_BARROSO,
+    C_ESTEFANIA,
+    C_LIDIA,
+    C_ANGEL,
+  ]).addComentarios("Angel: en principio hasta primeros de noviembre")
+);
+T.push(
+  new Turno(C_MARTES, nTurno++, "08:30", "17:30", [
+    C_JOSE_ALBERTO,
+  ]).addComentarios("vuelta flexible")
+);
+T.push(new Turno(C_MARTES, nTurno++, "07:30", "13:30", [C_ALFONSO]));
+T.push(
+  new Turno(C_MARTES, nTurno++, "08:30", "14:30", [
+    C_GUSTAVO,
+    C_DAVID,
+  ]).addComentarios(
+    "quizás somos muchos para ir en el turno de Inma, ¿cómo lo veis?"
+  )
+);
 
 /*
 Miércoles:
-Susana: 8,15 - 13:30
-Estefanía, Víctor: 7:30-14:00
-Jose Matas, Gustavo Reyes: 8:30-14:30
-José Manuel, Paco luis : 8:30-19:30
-Lidia : 8:30-17:30
+
 
 */
 T.push(new Turno(C_MIERCOLES, nTurno++, "08:15", "13:30", [C_SUSANA]));
@@ -47,7 +58,7 @@ T.push(
   new Turno(C_MIERCOLES, nTurno++, "07:30", "14:00", [C_ESTEFANIA, C_VICTOR])
 );
 T.push(
-  new Turno(C_MIERCOLES, nTurno++, "08:30", "14:30", [C_J_MATAS, C_GUSTAVO])
+  new Turno(C_MIERCOLES, nTurno++, "08:30", "14:30", [C_JOSE_MATAS, C_GUSTAVO])
 );
 T.push(
   new Turno(C_MIERCOLES, nTurno++, "08:30", "19:30", [C_JMF, C_PACO_LUIS])
@@ -63,7 +74,7 @@ Pilar Sánchez: 15:30-20:30
 T.push(new Turno(C_JUEVES, nTurno++, "08:30", "17:30", [C_NACHO, C_LIDIA]));
 T.push(
   new Turno(C_JUEVES, nTurno++, "08:30", "14:30", [
-    C_J_MATAS,
+    C_JOSE_MATAS,
     C_GUSTAVO,
     C_DAVID,
   ])
@@ -104,9 +115,7 @@ function modificaciones_posteriores(dia) {
   /* ----
    Eliminación de un turno
    --- */
-  //Jose Alberto, Inma: 8:30 - 17:30 (Este turno dura hasta el 26 de febrero inclusive)
-
-  if (fechaEs(fecha, 27, 2, 2024)) cancelarTurno(3, "27/feb");
+  if (fechaEs(fecha, 5, 11, 2025)) cancelarTurno(4, "4/nov");
 
   /* --- 
   Añadir conductor/a
