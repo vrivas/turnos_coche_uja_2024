@@ -150,9 +150,9 @@ function modificaciones_posteriores(dia) {
   /* ----
    Eliminación de un turno
    --- */
-  if (fechaEs(fecha, 5, 11, 2025)) cancelarTurno(4, "4/nov");
-  if (fechaEs(fecha, 1, 12, 2025)) cancelarTurno(18, "30/nov");
-  if (fechaEs(fecha, 1, 12, 2025)) cancelarTurno(21, "30/nov");
+  if (fechaEs(fecha, 5, 11, 2025)) cancelarTurno(4, "5/nov");
+  if (fechaEs(fecha, 1, 12, 2025)) cancelarTurno(18, "1/dic");
+  if (fechaEs(fecha, 1, 12, 2025)) cancelarTurno(21, "1/dic");
 
   /* --- 
   Añadir conductor/a
