@@ -161,7 +161,10 @@ function modificaciones_posteriores(dia) {
     aniadirConductor(4, C_NACHO, 1, "el 18/feb", 1);
   if (fechaEs(fecha, 13, 2, 2025))
     aniadirConductor(15, C_ANGEL, 2, "el 13/feb", 2);
-
+  if (fechaEs(fecha, 15, 9, 2025)) {
+    aniadirConductor(2, C_MIGUEL, 1, "el 15/sep", 1);
+    aniadirConductor(9, C_MIGUEL, 1, "el 15/sep", 0);
+  }
   // Los lunes siempre Victor, los jueves siempre Angel
   //coches[2].setContador(0);
   //coches[17].setContador(1);

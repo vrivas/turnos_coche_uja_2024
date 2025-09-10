@@ -90,6 +90,8 @@ var C_LAURA_MICCOLI = new Persona("Laura M.", "lmiccoli@ujaen.es");
 var C_LIDIA = new Persona("Lidia", "lidia@ujaen.es");
 var C_M_CRUZ = new Persona("Mari Cruz", "mcgarcia@ujaen.es");
 var C_MARIA_ESPINOSA = new Persona("María Espinosa", "mespinos@ujaen.es");
+
+var C_MIGUEL = new Persona("Miguel", "miguelsancer1999@gmail.com"); // MIGUEL SANTAMARÍA, 2025
 var C_MAYCA = new Persona("Mayca", "mcmartin@ujaen.es");
 var C_MONICA = new Persona("Mónica", "mtrivino@ujaen.es");
 var C_NACHO = new Persona("Nacho", "nacho@ujaen.es");
