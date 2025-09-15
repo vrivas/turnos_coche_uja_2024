@@ -62,8 +62,10 @@ José Manuel, Antonio, Paco luis : 8:30 - 19:30
 T.push(
   new Turno(C_MIERCOLES, nTurno++, "08:20", "14:30", [
     C_SUSANA,
-    C_MAYCA,
-  ]).addComentarios("Mayca: hasta el 30 de noviembre")
+    C_MIGUEL,
+  ]).addComentarios(
+    "Mayca: hasta el 30 de noviembre, aunque aún no sabemos cuándo empezará"
+  )
 );
 T.push(new Turno(C_MIERCOLES, nTurno++, "14:30", "18:30", [C_JOAQUIN]));
 T.push(
