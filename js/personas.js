@@ -58,6 +58,7 @@ var C_ANTONIO = new Persona("Antonio", "ajrueda@ujaen.es");
 var C_ANTONIO_CEPEDA = new Persona("Antonio Cepeda", "acepeda@uvm.edu");
 
 var C_ANYELY = new Persona("Anyely", "anyely_1986@hotmail.com");
+var C_ASUN = new Persona("Asun", "mrios@ujaen.es");
 // var C_CARLOS_MOLINA = new Persona("Carlos Molina", "carlosmo@ujaen.es");
 //var C_CARLOS_PORCEL   = new Persona( "Carlos Porcel","cporcel@ujaen.es" );
 var C_CARMEN = new Persona("Carmen Martínez", "cmcruz@ujaen.es");

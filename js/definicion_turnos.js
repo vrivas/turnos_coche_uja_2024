@@ -75,7 +75,7 @@ T.push(
     C_GUSTAVO,
   ])
 );
-T.push(new Turno(C_MIERCOLES, nTurno++, "12:45", "17:30", [C_NACHO, C_LIDIA]));
+T.push(new Turno(C_MIERCOLES, nTurno++, "12:30", "17:30", [C_NACHO, C_LIDIA]));
 T.push(
   new Turno(C_MIERCOLES, nTurno++, "07:15", "14:00", [C_GEMA]).addComentarios(
     "14 o 14:30, flexible"
@@ -110,7 +110,7 @@ T.push(
     "flexible la salida a las 09:00"
   )
 );
-
+T.push(new Turno(C_JUEVES, nTurno++, "13:30", "19:30", [C_ASUN]));
 /*
 Viernes:
 Mayca: 8:20-13,30  (hasta el 30 de noviembre)
@@ -123,6 +123,7 @@ T.push(
   )
 );
 T.push(new Turno(C_VIERNES, nTurno++, "09:30", "17:30", [C_ANGEL]));
+T.push(new Turno(C_VIERNES, nTurno++, "08:30", "17:30", [C_ASUN]));
 
 // Función donde añadimos las modificaciones que se van produciendo en los turnos.
 
@@ -154,7 +155,7 @@ function modificaciones_posteriores(dia) {
    --- */
   if (fechaEs(fecha, 5, 11, 2025)) cancelarTurno(4, "5/nov");
   if (fechaEs(fecha, 1, 12, 2025)) cancelarTurno(18, "1/dic");
-  if (fechaEs(fecha, 1, 12, 2025)) cancelarTurno(21, "1/dic");
+  if (fechaEs(fecha, 1, 12, 2025)) cancelarTurno(22, "1/dic");
 
   /* --- 
   Añadir conductor/a
@@ -167,6 +168,8 @@ function modificaciones_posteriores(dia) {
     aniadirConductor(2, C_MIGUEL, 1, "el 15/sep", 1);
     aniadirConductor(9, C_MIGUEL, 1, "el 15/sep", 0);
   }
+  if (fechaEs(fecha, 03, 10, 2025))
+    aniadirConductor(12, C_ASUN, 1, "el 3/oct", 1);
   // Los lunes siempre Victor, los jueves siempre Angel
   //coches[2].setContador(0);
   //coches[17].setContador(1);
