@@ -53,8 +53,8 @@ function Turno(
     return this;
   };
   this.cancelar = function (_comentario) {
-    //this.activo = false;
-    //this.personas = [C_CANCELADO];
+    this.activo = false;
+    this.personas = [C_CANCELADO];
     this.comentarios.push("Cancelado el : " + _comentario);
     return this;
   };
