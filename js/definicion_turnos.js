@@ -122,8 +122,7 @@ T.push(
     "hasta el 30 de noviembre"
   )
 );
-T.push(new Turno(C_VIERNES, nTurno++, "09:30", "17:30", [C_ANGEL]));
-T.push(new Turno(C_VIERNES, nTurno++, "08:30", "17:30", [C_ASUN]));
+T.push(new Turno(C_VIERNES, nTurno++, "08:30", "17:30", [C_ANGEL]));
 
 // Función donde añadimos las modificaciones que se van produciendo en los turnos.
 
@@ -170,6 +169,9 @@ function modificaciones_posteriores(dia) {
   }
   if (fechaEs(fecha, 03, 10, 2025))
     aniadirConductor(12, C_ASUN, 1, "el 3/oct", 1);
+  if (fechaEs(fecha, 10, 10, 2025))
+    aniadirConductor(23, C_ASUN, 1, "el 23/oct", 1);
+
   // Los lunes siempre Victor, los jueves siempre Angel
   //coches[2].setContador(0);
   //coches[17].setContador(1);
