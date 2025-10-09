@@ -52,10 +52,18 @@ function Turno(
     this.contador = this.contador % this.personas.length;
     return this;
   };
+
+  //Funcion cancelar cambiada para que aparezca los participantes originales en los comentarios del turno
   this.cancelar = function (_comentario) {
+    // Guardamos los nombres de las personas antes de cancelar
+    const participantesOriginales = this.personas.map(p => p.nombre).join(", ");
+    this.addComentarios(
+      "Participantes originales: " + participantesOriginales
+    );
+    this.comentarios.push("Cancelado el: " + _comentario);
     this.activo = false;
     this.personas = [C_CANCELADO];
-    this.comentarios.push("Cancelado el : " + _comentario);
+
     return this;
   };
 
