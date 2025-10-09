@@ -1,7 +1,12 @@
+// ----------------------------------------------------------
+// Muestra una lista de días (por ejemplo, el cuatrimestre, la semana, o el día de hoy)
+// ----------------------------------------------------------
 function mostrarDias(titulo, dias = [], clases = []) {
   let divTitulo = document.getElementById("titulo");
   let divContenido = document.getElementById("contenido");
+
   divTitulo.innerHTML = titulo;
+
   let msj = "";
   dias.forEach((d) => {
     msj += d.toDiv(clases) + "\n";
@@ -11,55 +16,78 @@ function mostrarDias(titulo, dias = [], clases = []) {
     msj == ""
       ? "No se ha encontrado ningún turno operativo en este periodo"
       : msj;
+
   divContenido.innerHTML = msj;
+
   setTimeout(ocultarNoMiTurno, 5 * 1000);
 }
 
+// ----------------------------------------------------------
+// Oculta los turnos que no pertenecen al usuario conectado
+// ----------------------------------------------------------
 function ocultarNoMiTurno() {
   if (
     PREFERENCIAS_USUARIO.correo != "" &&
     PREFERENCIAS_USUARIO.correo != null
   ) {
     document
-      .querySelectorAll(".no-mi-turno")
-      .forEach((e) => (e.style.display = "none"));
+      .querySelectorAll(".no-mi-turno") 
+      .forEach((e) => (e.style.display = "none")); 
   }
 }
+
+// ----------------------------------------------------------
+// Muestra bloques de información genérica (como personas, ubicaciones, preferencias...)
+// ----------------------------------------------------------
 function mostrarInfo(titulo, divs = [], clases = []) {
   let divTitulo = document.getElementById("titulo");
   let divContenido = document.getElementById("contenido");
+
   divTitulo.innerHTML = titulo;
   divContenido.innerHTML = "";
+
   divs.forEach((d) => {
     divContenido.innerHTML += d;
   });
 }
 
+// ----------------------------------------------------------
+// Cierra el menú lateral si está abierto (botón de cierre “X”)
+// ----------------------------------------------------------
 function cerrarBotonX() {
   if (document.getElementsByName("close-outline")[0].style.display == "block") {
     document.getElementsByName("close-outline")[0].click();
   }
 }
 
+// ----------------------------------------------------------
+// Muestra todos los días del cuatrimestre completo
+// ----------------------------------------------------------
 function mostrarDiasCuatrimestre() {
-  mostrarDias(cuatrimestre.getTitulo(), D);
-  cerrarBotonX();
+  mostrarDias(cuatrimestre.getTitulo(), D); 
+  cerrarBotonX(); 
 }
 
+// ----------------------------------------------------------
+// Muestra únicamente el día actual
+// ----------------------------------------------------------
 function mostrarDiaHoy() {
   let hoy = new Date();
-
   mostrarDias(
-    hoy.toDW_DD_MMM_YYYY(),
+    hoy.toDW_DD_MMM_YYYY(), 
     D.filter((d) => d.fecha.toComparableString() == hoy.toComparableString()),
-    ["dia-pantalla-completa"]
+    ["dia-pantalla-completa"] 
   );
   cerrarBotonX();
 }
+
+// ----------------------------------------------------------
+// Muestra los días de la semana actual
+// ----------------------------------------------------------
 function mostrarDiasSemana() {
   let hoy = new Date();
   let diaSemana = hoy.getDay();
-  diaSemana = diaSemana == 0 ? 7 : diaSemana;
+  diaSemana = diaSemana == 0 ? 7 : diaSemana; 
   let posicion = D.findIndex(
     (d) => d.fecha.toComparableString() == hoy.toComparableString()
   );
@@ -70,11 +98,13 @@ function mostrarDiasSemana() {
   cerrarBotonX();
 }
 
-// Mostramos la información de todos los turnos
+// ----------------------------------------------------------
+// Muestra la información de todos los turnos (por día de la semana)
+// ----------------------------------------------------------
 function mostrarTurnos() {
   let divs = [];
   for (i = C_LUNES; i <= C_VIERNES; i++) {
-    divs.push(`<div class='info-dia'>${NOMBRE_DIAS[i]}</div>`);
+    divs.push(`<div class='info-dia'>${NOMBRE_DIAS[i]}</div>`); 
     T.filter((t) => t.dia == i).forEach((t) => {
       divs.push(infoTurnoToInfoDiv(t));
     });
@@ -83,17 +113,23 @@ function mostrarTurnos() {
   cerrarBotonX();
 }
 
-// Mostramos la información de todas las personas
+// ----------------------------------------------------------
+// Muestra la información de todas las personas activas
+// ----------------------------------------------------------
 function mostrarPersonas() {
   let divs = [];
 
   P.filter((p) => p.activo).forEach((p) => {
     divs.push(personaToDiv(p));
   });
+
   mostrarInfo("Info Turnos", divs);
   cerrarBotonX();
 }
 
+// ----------------------------------------------------------
+// Autocompleta el correo en el panel de preferencias del usuario
+// ----------------------------------------------------------
 function rellenarPreferenciasCorreo(evt) {
   const texto = evt.target.value;
   let coinciden = P.filter((p) => p.correo.substr(0, texto.length) == texto);
@@ -107,6 +143,9 @@ function rellenarPreferenciasCorreo(evt) {
   }
 }
 
+// ----------------------------------------------------------
+// Actualiza el nombre y correo del usuario mostrado en pantalla
+// ----------------------------------------------------------
 function actualizaDatosMostradosUsuario() {
   if (
     PREFERENCIAS_USUARIO.correo != null &&
@@ -120,15 +159,21 @@ function actualizaDatosMostradosUsuario() {
   }
 }
 
+// ----------------------------------------------------------
+// Guarda las preferencias introducidas y actualiza la vista
+// ----------------------------------------------------------
 function aceptarPreferencias() {
   PREFERENCIAS_USUARIO.correo = document.getElementById("emailSettings").value;
   PREFERENCIAS_USUARIO.nombre =
     document.getElementById("nombreSettings").innerHTML;
-  guardarPreferencias();
-  actualizaDatosMostradosUsuario();
-  mostrarDiasCuatrimestre();
+  guardarPreferencias(); // Se guardan en cookies/localStorage
+  actualizaDatosMostradosUsuario(); 
+  mostrarDiasCuatrimestre(); 
 }
 
+// ----------------------------------------------------------
+// Muestra el panel de preferencias del usuario
+// ----------------------------------------------------------
 function mostrarPreferencias() {
   let divs = [];
   divs.push(
@@ -141,16 +186,12 @@ function mostrarPreferencias() {
   divs.push(
     `<div class='preferencias-nombre'><b>Nombre: </b><span  id='nombreSettings'>${PREFERENCIAS_USUARIO.nombre}</span></div>`
   );
-
   divs.push(
     `<div class='preferencias-aceptar'><button id='aceptarSettings'>Aceptar</button></div>`
   );
-  /*divs.push(
-    `<div class='vistaPorDefecto'>${PREFERENCIAS.vistaPorDefecto}</div>`
-  );*/
-  /*divs.push(`<div class='aceptaCookies'>${PREFERENCIAS.aceptaCookies}</div>`);*/
 
   mostrarInfo("Preferencias", divs);
+
   document
     .getElementById("emailSettings")
     .addEventListener("keyup", rellenarPreferenciasCorreo);
@@ -160,17 +201,21 @@ function mostrarPreferencias() {
   cerrarBotonX();
 }
 
+// ----------------------------------------------------------
+// Muestra la sección de ubicaciones con enlace a Google Maps
+// ----------------------------------------------------------
 function mostrarUbicaciones() {
   let divs = [];
   divs.push(
     `<div>Accede a la  <a target="new" href="https://maps.app.goo.gl/CQgTMidJJmatrsEk6">lista de puntos de encuentro</a>.<br>Se abre en una ventana nueva.</div>`
   );
   mostrarInfo("Ubicaciones", divs);
-
   cerrarBotonX();
 }
-// Cargamos las preferencias del usuario y actuamos en consecuencia
-cargarPreferencias();
-actualizaDatosMostradosUsuario();
-// Por defecto, mostramos los días del cuatrimestre
-mostrarDiasCuatrimestre();
+
+// ----------------------------------------------------------
+// Al cargar la página: se inicializan preferencias y vista principal
+// ----------------------------------------------------------
+cargarPreferencias(); 
+actualizaDatosMostradosUsuario(); 
+mostrarDiasCuatrimestre(); 
