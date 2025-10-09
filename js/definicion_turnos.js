@@ -99,8 +99,7 @@ T.push(
     "hasta el 30 de noviembre"
   )
 );
-T.push(new Turno(C_VIERNES, nTurno++, "09:30", "17:30", [C_ANGEL]));
-T.push(new Turno(C_VIERNES, nTurno++, "08:30", "17:30", [C_ASUN]));
+T.push(new Turno(C_VIERNES, nTurno++, "08:30", "17:30", [C_ANGEL]));
 
 /* ==========================================================
    FUNCIÓN PARA APLICAR CAMBIOS Y EXCEPCIONES EN DÍAS CONCRETOS
