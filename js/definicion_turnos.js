@@ -145,7 +145,9 @@ function modificaciones_posteriores(dia) {
     aniadirConductor(9, C_MIGUEL, 1, "el 15/sep", 0);
   }
   if (fechaEs(fecha, 3, 10, 2025))
-    aniadirConductor(12, C_ASUN, 1, "el 3/oct", 1);
+    aniadirConductor(12, C_ASUN, 1, "el 3/oct", 1);  
+  if (fechaEs(fecha, 10, 10, 2025))
+    aniadirConductor(23, C_ASUN, 1, "el 10/oct", 1);
 
   /* ----
    Eliminar a un conductor de un turno en una fecha concreta
