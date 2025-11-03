@@ -37,13 +37,16 @@ T.push(
   ]).addComentarios("Ángel: en principio hasta primeros de noviembre")
 );
 T.push(
-  new Turno(C_MARTES, nTurno++, "08:30", "17:30", [C_JOSE_ALBERTO]).addComentarios(
-    "vuelta flexible"
-  )
+  new Turno(C_MARTES, nTurno++, "08:30", "17:30", [
+    C_JOSE_ALBERTO,
+  ]).addComentarios("vuelta flexible")
 );
 T.push(new Turno(C_MARTES, nTurno++, "07:30", "13:30", [C_ALFONSO]));
 T.push(
-  new Turno(C_MARTES, nTurno++, "08:30", "14:30", [C_GUSTAVO, C_DAVID]).addComentarios(
+  new Turno(C_MARTES, nTurno++, "08:30", "14:30", [
+    C_GUSTAVO,
+    C_DAVID,
+  ]).addComentarios(
     "quizás somos muchos para ir en el turno de Inma, ¿cómo lo veis?"
   )
 );
@@ -53,7 +56,10 @@ Miércoles:
 Se definen varios turnos con sus respectivos conductores y comentarios.
 */
 T.push(
-  new Turno(C_MIERCOLES, nTurno++, "08:20", "14:30", [C_SUSANA, C_MIGUEL]).addComentarios(
+  new Turno(C_MIERCOLES, nTurno++, "08:20", "14:30", [
+    C_SUSANA,
+    C_MIGUEL,
+  ]).addComentarios(
     "Mayca: hasta el 30 de noviembre, aunque aún no sabemos cuándo empezará"
   )
 );
@@ -66,9 +72,17 @@ T.push(
   ])
 );
 T.push(new Turno(C_MIERCOLES, nTurno++, "12:30", "17:30", [C_NACHO, C_LIDIA]));
-T.push(new Turno(C_MIERCOLES, nTurno++, "07:15", "14:00", [C_GEMA]).addComentarios("14 o 14:30, flexible"));
 T.push(
-  new Turno(C_MIERCOLES, nTurno++, "08:30", "19:30", [C_JMF, C_ANTONIO, C_PACO_LUIS])
+  new Turno(C_MIERCOLES, nTurno++, "07:15", "14:00", [C_GEMA]).addComentarios(
+    "14 o 14:30, flexible"
+  )
+);
+T.push(
+  new Turno(C_MIERCOLES, nTurno++, "08:30", "19:30", [
+    C_JMF,
+    C_ANTONIO,
+    C_PACO_LUIS,
+  ])
 );
 
 /*
@@ -145,9 +159,15 @@ function modificaciones_posteriores(dia) {
     aniadirConductor(9, C_MIGUEL, 1, "el 15/sep", 0);
   }
   if (fechaEs(fecha, 3, 10, 2025))
-    aniadirConductor(12, C_ASUN, 1, "el 3/oct", 1);  
+    aniadirConductor(12, C_ASUN, 1, "el 3/oct", 1);
   if (fechaEs(fecha, 10, 10, 2025))
     aniadirConductor(23, C_ASUN, 1, "el 10/oct", 1);
+
+  if (fechaEs(fecha, 4, 11, 2025)) {
+    aniadirConductor(7, C_ANGEL, 2, "el 4/nov", 2);
+    aniadirConductor(7, C_PACO_LUIS, 3, "el 4/nov", 2);
+    aniadirConductor(7, C_MIGUEL, 1, "el 4/nov", 2);
+  }
 
   /* ----
    Eliminar a un conductor de un turno en una fecha concreta
