@@ -2,6 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <!-- Configuración para que el diseño sea responsive en móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Turnos Coche UJA (v.2024)</title>
     <link rel="stylesheet" href="css/style.css" />
@@ -14,6 +15,7 @@
       <ion-icon name="close-outline"></ion-icon>
     </div>
 
+    <!-- Barra lateral con el menú de navegación -->
     <div class="barra-lateral">
       <div>
         <div class="nombre-pagina">
@@ -26,9 +28,11 @@
             </button-->
       </div>
 
+      <!-- Navegación principal con enlaces que llaman funciones JavaScript -->
       <nav class="navegacion">
         <ul>
           <li>
+            <!-- Enlace que ejecuta función para mostrar días del cuatrimestre -->
             <a
               id="inbox"
               href="javascript:mostrarDiasCuatrimestre()"
@@ -39,30 +43,35 @@
             </a>
           </li>
           <li>
+            <!-- Enlace para mostrar días de la semana -->
             <a id="inbox" href="javascript:mostrarDiasSemana()" title="Semana">
               <ion-icon name="today-outline"></ion-icon>
               <span>Semana</span>
             </a>
           </li>
           <li>
+            <!-- Enlace para mostrar el día actual -->
             <a id="inbox" href="javascript:mostrarDiaHoy()" title="Hoy">
               <ion-icon name="calendar-number-outline"></ion-icon>
               <span>Hoy</span>
             </a>
           </li>
           <li>
+            <!-- Enlace para mostrar turnos -->
             <a id="inbox" href="javascript:mostrarTurnos()" title="Turnos">
               <ion-icon name="information-circle-outline"></ion-icon>
               <span>Turnos</span>
             </a>
           </li>
           <li>
+            <!-- Enlace para mostrar personas -->
             <a id="inbox" href="javascript:mostrarPersonas()" title="Personas">
               <ion-icon name="person-circle-outline"></ion-icon>
               <span>Personas</span>
             </a>
           </li>
           <li>
+            <!-- Enlace para mostrar ubicaciones -->
             <a
               id="inbox"
               href="javascript:mostrarUbicaciones()"
@@ -73,6 +82,7 @@
             </a>
           </li>
           <li>
+            <!-- Enlace para mostrar preferencias -->
             <a
               id="inbox"
               href="javascript:mostrarPreferencias()"
@@ -85,9 +95,10 @@
         </ul>
       </nav>
 
+      <!-- Parte inferior del menú lateral con información del usuario -->
       <div class="parte-inferior-menu">
-        <!--<div class="linea"></div>-->
-        <!---
+        <!--
+        <div class="linea"></div>
         <div class="modo-oscuro">
           <div class="info">
             <ion-icon name="moon-outline"></ion-icon>
@@ -112,11 +123,13 @@
       </div>
     </div>
 
+    <!-- Contenido principal donde se mostrará la información dinámica -->
     <main id="main">
       <h1 id="titulo"></h1>
       <div id="contenido"></div>
     </main>
 
+    <!-- Carga del framework Ionicons para los iconos -->
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -125,6 +138,8 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+
+    <!-- Scripts JavaScript que controlan la funcionalidad de la página -->
     <script src="js/main.js"></script>
     <script src="js/cookies.js"></script>
     <script src="js/preferencias.js"></script>
