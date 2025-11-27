@@ -26,7 +26,7 @@ let cuatrimestre = {
     },
     {
       nombre: "Día de la Inmaculada",
-      inicio: fecha(8 + 1, 12, 2025), 
+      inicio: fecha(8, 12, 2025), 
     },
     { nombre: "Inauguración curso", inicio: fecha(18, 9, 2025) },
   ],
