@@ -79,6 +79,7 @@ var C_INMA_GARCIA = new Persona("Inma Garcia", "igmartin@ujaen.es");
 var C_JOSE_ALBERTO = new Persona("José Alberto", "jamoleon@ujaen.es");
 var C_JOSE_MATAS = new Persona("José Matas", "matas@ujaen.es");
 var C_JAVIER = new Persona("Javier Pérez", "jppadill@ujaen.es");
+var C_JANNETH = new Persona("Janneth", "gespanol@ujaen.es");
 var C_JMF = new Persona("José Manuel", "jmf@ujaen.es");
 var C_JOAQUIN = new Persona("Joaquin", "jjodar@ujaen.es");
 var C_JORGE_CASTRO = new Persona("Jorge Castro", "jcastro@ujaen.es");

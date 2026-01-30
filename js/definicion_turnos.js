@@ -1,119 +1,110 @@
 /*
 Lunes: 
-Nacho, Víctor: 9:30 - 17:30
-Estefanía: 8:30 - 14:30
-Alfonso: 7:30-13:30
+***Nacho: 12:30 - 17:30 (Nacho: a partir del 23 de febrero)
+Inma, Lidia, Asun, Alfonso, Ángel: 08:30 - 14:30
+Janneth: 14:30 - 18:30 ***(hasta 23 de marzo)
+Janneth 15:30 - 18:30 (a partir del 30 de marzo)
+Miguel: 13:00 - 20:30 (***Miguel: Hasta Semana Santa)
 */
 
 // Se crean los turnos del lunes, con hora de inicio, fin y los conductores asignados.
-T.push(new Turno(C_LUNES, nTurno++, "09:30", "17:30", [C_NACHO, C_VICTOR]));
-T.push(new Turno(C_LUNES, nTurno++, "08:30", "14:30", [C_ESTEFANIA]));
-T.push(new Turno(C_LUNES, nTurno++, "07:30", "13:30", [C_ALFONSO]));
+// Se pueden añadir comentarios informativos con .addComentarios()
+
+T.push(
+  new Turno(C_LUNES, nTurno++, "09:30", "14:30", [
+    C_INMA_BARROSO,
+    C_LIDIA,
+    C_ASUN,
+    C_ALFONSO,
+    C_ANGEL,
+  ]),
+);
+T.push(
+  new Turno(C_LUNES, nTurno++, "14:30", "18:30", [C_JANNETH]).addComentarios(
+    "Desde las 15:30 a partir del 30/Mar/2026",
+  ),
+);
+T.push(new Turno(C_LUNES, nTurno++, "13:00", "20:30", [C_MIGUEL]));
 
 /*
 Martes:
-Susana: 8:20 - 13:30 (hasta el 4 de noviembre)
-Joaquín: 7:30 - 14:30
-Inma, Estefanía, Lidia, Ángel : 8:30 - 14:30 (Ángel: hasta primeros de noviembre)
-Jose Alberto: 8:30 - 17:30 (vuelta flexible)
-Alfonso: 7:30-13:30
-Gustavo, David: 8,30-14,30 h
+Pilar Sánchez: 7:30-12:30
+Gustavo, Inma, Jose Alberto, Lidia, Alfonso, Asun (nos partimos en 2 coches? -> (lidia) yo sugiero hacer uno porque si alguien falla se puede ir en un solo coche)
+(Asun), somos 6 personas, no cojemos en un solo coche -> ya se hizo una vez, se van 2 coches habitualmente pero si alguien falla se puede ir en uno): 8:30-14:30
+Paco Luis, José Manuel : 8:30 - 19:30
+Janneth (provisional): 9:30 - 20:30 
+***Estefanía: 7:30-14:30 (hasta 29 abril) 
 */
 
 // Cada línea crea un turno de martes con los conductores y horarios indicados.
 // Se pueden añadir comentarios informativos con .addComentarios()
 T.push(
-  new Turno(C_MARTES, nTurno++, "08:20", "13:30", [C_SUSANA]).addComentarios(
-    "hasta el 4 de noviembre"
-  )
-);
-T.push(new Turno(C_MARTES, nTurno++, "07:30", "14:30", [C_JOAQUIN]));
-T.push(
-  new Turno(C_MARTES, nTurno++, "08:30", "14:30", [
-    C_INMA_BARROSO,
-    C_ESTEFANIA,
-    C_LIDIA,
-    C_ANGEL,
-  ]).addComentarios("Ángel: en principio hasta primeros de noviembre")
-);
-T.push(
-  new Turno(C_MARTES, nTurno++, "08:30", "17:30", [
-    C_JOSE_ALBERTO,
-  ]).addComentarios("vuelta flexible")
-);
-T.push(new Turno(C_MARTES, nTurno++, "07:30", "13:30", [C_ALFONSO]));
-T.push(
-  new Turno(C_MARTES, nTurno++, "08:30", "14:30", [
+  (new Turno(C_MARTES, nTurno++, "08:30", "14:30", [
     C_GUSTAVO,
-    C_DAVID,
-  ]).addComentarios(
-    "quizás somos muchos para ir en el turno de Inma, ¿cómo lo veis?"
-  )
+    C_INMA_BARROSO,
+    C_JOSE_ALBERTO,
+    C_LIDIA,
+    C_ALFONSO,
+    C_ASUN,
+  ]).desdoblarSi5 = true),
 );
+T.push(new Turno(C_MARTES, nTurno++, "08:30", "14:30", [C_PACO_LUIS, C_JMF]));
+T.push(new Turno(C_MARTES, nTurno++, "08:30", "17:30", [C_JOSE_ALBERTO]));
+T.push(new Turno(C_MARTES, nTurno++, "07:30", "13:30", [C_ALFONSO]));
+T.push(new Turno(C_MARTES, nTurno++, "09:30", "20:30", [C_JANNETH]));
+T.push(new Turno(C_MARTES, nTurno++, "07:30", "14:30", [C_ESTEFANIA]));
 
 /*
 Miércoles:
-Se definen varios turnos con sus respectivos conductores y comentarios.
+Pilar Sánchez, Susana Ruiz, Jose Alberto, Alfonso, Gustavo: 8:30-13:30 
+***Paco Luis, Ángel, Antonio Rueda (comienzo el 18-02), José Manuel: 8:30 19:30
+***Estefanía (hasta 29 abril), David (sólo hasta 27 marzo, Semana Santa): 7:30-14:30
+***Miguel: 13:00 - 20:30 (Miguel: Hasta 12 de Marzo)
+
 */
 T.push(
-  new Turno(C_MIERCOLES, nTurno++, "08:20", "14:30", [
+  new Turno(C_MIERCOLES, nTurno++, "08:30", "13:30", [
+    C_PILAR,
     C_SUSANA,
-    C_MIGUEL,
-  ]).addComentarios(
-    "Mayca: hasta el 30 de noviembre, aunque aún no sabemos cuándo empezará"
-  )
-);
-T.push(new Turno(C_MIERCOLES, nTurno++, "14:30", "18:30", [C_JOAQUIN]));
-T.push(
-  new Turno(C_MIERCOLES, nTurno++, "08:30", "14:30", [
-    C_INMA_BARROSO,
-    C_ESTEFANIA,
+    C_JOSE_ALBERTO,
+    C_ALFONSO,
     C_GUSTAVO,
-  ])
-);
-T.push(new Turno(C_MIERCOLES, nTurno++, "12:30", "17:30", [C_NACHO, C_LIDIA]));
-T.push(
-  new Turno(C_MIERCOLES, nTurno++, "07:15", "14:00", [C_GEMA]).addComentarios(
-    "14 o 14:30, flexible"
-  )
+  ]),
 );
 T.push(
   new Turno(C_MIERCOLES, nTurno++, "08:30", "19:30", [
-    C_JMF,
-    C_ANTONIO,
     C_PACO_LUIS,
-  ])
+    C_ANGEL,
+    C_JMF,
+  ]),
 );
+T.push(
+  new Turno(C_MIERCOLES, nTurno++, "07:30", "14:30", [C_ESTEFANIA, C_DAVID]),
+);
+T.push(new Turno(C_MIERCOLES, nTurno++, "13:00", "20:30", [C_MIGUEL]));
 
 /*
 Jueves: creación de turnos similares con comentarios de flexibilidad y límites temporales
-*/
-T.push(new Turno(C_JUEVES, nTurno++, "08:20", "13:30", [C_SUSANA]));
-T.push(new Turno(C_JUEVES, nTurno++, "07:30", "20:30", [C_JOAQUIN]));
-T.push(
-  new Turno(C_JUEVES, nTurno++, "14:20", "19:30", [C_MAYCA]).addComentarios(
-    "o 20:30, hasta 30 noviembre"
-  )
-);
-T.push(new Turno(C_JUEVES, nTurno++, "08:30", "19:30", [C_JMF]));
-T.push(
-  new Turno(C_JUEVES, nTurno++, "09:00", "17:30", [C_LIDIA]).addComentarios(
-    "flexible la salida a las 09:00"
-  )
-);
-T.push(new Turno(C_JUEVES, nTurno++, "13:30", "19:30", [C_ASUN]));
+Nacho: 8:30 - 17:30
+***Susana Ruiz, Gustavo, Antonio Rueda(comienzo el 19-02), Lidia: 8:20-14:00
+Janneth: 14:30 - 18:30
 
+*/
+T.push(new Turno(C_JUEVES, nTurno++, "08:30", "17:30", [C_NACHO]));
+T.push(
+  new Turno(C_JUEVES, nTurno++, "08:20", "14:00", [
+    C_SUSANA,
+    C_GUSTAVO,
+    C_LIDIA,
+  ]),
+);
+T.push(new Turno(C_JUEVES, nTurno++, "14:30", "18:30", [C_JANNETH]));
 /*
 Viernes:
-Mayca: 8:20-13,30  (hasta el 30 de noviembre)
-Ángel: 9:30 - 17:30
+Nacho: 8:30 - 13:30
+
 */
-T.push(
-  new Turno(C_VIERNES, nTurno++, "08:20", "13:30", [C_MAYCA]).addComentarios(
-    "hasta el 30 de noviembre"
-  )
-);
-T.push(new Turno(C_VIERNES, nTurno++, "08:30", "17:30", [C_ANGEL]));
+T.push(new Turno(C_VIERNES, nTurno++, "08:30", "13:30", [C_NACHO]));
 
 /* ==========================================================
    FUNCIÓN PARA APLICAR CAMBIOS Y EXCEPCIONES EN DÍAS CONCRETOS
