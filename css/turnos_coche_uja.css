@@ -21,16 +21,16 @@ main #contenido {
 }
 
 main #titulo {
-  background-color: #eee; 
-  border-radius: 1rem; 
+  background-color: #eee;
+  border-radius: 1rem;
 }
 
 /* Contenedor principal del contenido */
 main #contenido {
   position: fixed; /* se mantiene fijo al hacer scroll */
   overflow: scroll; /* permite desplazamiento interno */
-  height: 90%; 
-  width: 77%; 
+  height: 90%;
+  width: 77%;
 }
 
 /* ======================================== */
@@ -44,7 +44,7 @@ main #contenido {
   background-color: rgba(200, 200, 250, 0.1);
   margin: 2px;
   padding: 2px;
-  float: left; 
+  float: left;
   width: 19%;
 }
 
@@ -69,6 +69,9 @@ main #contenido {
   padding-right: 0.3em;
 }
 
+.contenido-turnos {
+  background-color: rgba(200, 200, 250, 0.3);
+}
 /* Día actual (resaltado en verde claro) */
 #hoy {
   background-color: rgba(200, 255, 200, 0.3);
@@ -208,15 +211,14 @@ em {
 /* ======================================== */
 /* RESALTADO DE ROLES                       */
 /* ======================================== */
-
-.soy-conductor {
+/* .soy-conductor {
   background-color: rgba(200, 200, 250, 0.5);
 }
 
 .soy-acompanante {
   background-color: rgba(200, 200, 250, 0.3);
 }
-
+*/
 /* ======================================== */
 /* EFECTO DE DESVANECIMIENTO (ANIMACIÓN)    */
 /* ======================================== */
