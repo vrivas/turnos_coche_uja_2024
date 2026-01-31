@@ -10,7 +10,7 @@ function Turno(
   _personas,
   _lugar,
   _fechaInicio,
-  _fechaFin
+  _fechaFin,
 ) {
   this.dia = _dia;
   this.numTurno = _numTurno;
@@ -56,10 +56,10 @@ function Turno(
   //Funcion cancelar cambiada para que aparezca los participantes originales en los comentarios del turno
   this.cancelar = function (_comentario) {
     // Guardamos los nombres de las personas antes de cancelar
-    const participantesOriginales = this.personas.map(p => p.nombre).join(", ");
-    this.addComentarios(
-      "Participantes originales: " + participantesOriginales
-    );
+    const participantesOriginales = this.personas
+      .map((p) => p.nombre)
+      .join(", ");
+    this.addComentarios("Participantes originales: " + participantesOriginales);
     this.comentarios.push("Cancelado el: " + _comentario);
     this.activo = false;
     this.personas = [C_CANCELADO];
@@ -86,6 +86,7 @@ function Turno(
   this.getInfoParaDia = function () {
     if (!this.activo) return null;
     let info = {
+      diaSemana: NOMBRE_DIAS[this.dia],
       numTurno: this.numTurno,
       hora_gr: this.hora_gr,
       hora_j: this.hora_j,
@@ -199,7 +200,7 @@ function infoTurnoToDiv(info) {
   let spanAcompanantes =
     info.acompanantes.length > 0
       ? `<span class="${clasesAcompanantes}">(${info.acompanantes.join(
-          ", "
+          ", ",
         )})</span>`
       : "";
   let divPersonas = `<div class='personas'>
@@ -208,7 +209,8 @@ function infoTurnoToDiv(info) {
         </div>`;
   // clases aplicables al día
   clasesInfoTurno = clasesInfoTurno.join(" ");
-  return `<div class='${clasesInfoTurno}'>
+  let alertTxt = infoToAlert(info);
+  return `<div class='${clasesInfoTurno}' onClick='alert("${alertTxt}")'>
         <div class='numero-y-cambios'>
             ${divNumTurno}
             ${divNuevo}
@@ -219,6 +221,20 @@ function infoTurnoToDiv(info) {
             ${divPersonas}
         </div>
     </div>`;
+}
+
+function infoToAlert(info) {
+  let tmp = "";
+  tmp += "Turno: " + cerear(info.numTurno) + "\\n";
+  tmp +=
+    " * " + info.diaSemana + ", " + info.hora_gr + " a " + info.hora_j + "\\n";
+  tmp += " * Conduce: " + info.conductor + "\\n";
+  if (info.acompanantes.length)
+    tmp += " * Acompañantes: " + info.acompanantes.join(", ") + "\\n";
+  if (info.comentarios.length)
+    tmp +=
+      " * Comentarios: " + "\\n     -" + info.comentarios.join("\\n     -");
+  return tmp;
 }
 
 function aniadirConductor(numCoche, conductor, posicion, comentario, contador) {
