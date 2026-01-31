@@ -60,7 +60,7 @@ function Turno(
       .map((p) => p.nombre)
       .join(", ");
     //this.addComentarios("Participantes originales: " + participantesOriginales);
-    this.comentarios.push("Se cancela el  " + _comentario);
+    this.comentarios.push("Se cancela el turno el " + _comentario);
     this.activo = false;
     this.personas = [C_CANCELADO];
 
