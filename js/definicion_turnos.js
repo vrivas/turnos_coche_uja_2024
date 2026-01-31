@@ -42,13 +42,7 @@ Estefanía: 7:30-14:30 (hasta 29 abril)
 
 // Cada línea crea un turno de martes con los conductores y horarios indicados.
 // Se pueden añadir comentarios informativos con .addComentarios()
-T.push(
-  new Turno(C_MARTES, nTurno++, "08:30", "14:30", [
-    C_GUSTAVO,
-    C_ALFONSO,
-    C_ASUN,
-  ]),
-);
+T.push(new Turno(C_MARTES, nTurno++, "08:30", "14:30", [C_GUSTAVO, C_ASUN]));
 T.push(
   new Turno(C_MARTES, nTurno++, "08:30", "14:30", [
     C_INMA_BARROSO,
@@ -74,9 +68,8 @@ T.push(
     C_PILAR,
     C_SUSANA,
     C_JOSE_ALBERTO,
-    C_ALFONSO,
     C_GUSTAVO,
-  ]),
+  ]).setContador(2),
 );
 
 T.push(
@@ -155,6 +148,10 @@ function modificaciones_posteriores(dia) {
     aniadirConductor(10, C_ANTONIO, 0, "el " + fecha.toDD_MMM(), 0);
   if (fechaEs(fecha, 19, 2, 2026))
     aniadirConductor(14, C_ANTONIO, 1, "el " + fecha.toDD_MMM(), 1);
+  if (fechaEs(fecha, 10, 2, 2026))
+    aniadirConductor(4, C_ALFONSO, 1, "el " + fecha.toDD_MMM(), 1);
+  if (fechaEs(fecha, 11, 2, 2026))
+    aniadirConductor(9, C_ALFONSO, 0, "el " + fecha.toDD_MMM(), 4);
 
   /* ----
    Eliminar a un conductor de un turno en una fecha concreta
