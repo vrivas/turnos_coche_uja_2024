@@ -39,18 +39,21 @@ Janneth (provisional): 9:30 - 20:30
 // Cada línea crea un turno de martes con los conductores y horarios indicados.
 // Se pueden añadir comentarios informativos con .addComentarios()
 T.push(
-  (new Turno(C_MARTES, nTurno++, "08:30", "14:30", [
+  new Turno(C_MARTES, nTurno++, "08:30", "14:30", [
     C_GUSTAVO,
+    C_ALFONSO,
+    C_ASUN,
+  ]),
+);
+T.push(
+  new Turno(C_MARTES, nTurno++, "08:30", "14:30", [
     C_INMA_BARROSO,
     C_JOSE_ALBERTO,
     C_LIDIA,
-    C_ALFONSO,
-    C_ASUN,
-  ]).desdoblarSi5 = true),
+  ]),
 );
+
 T.push(new Turno(C_MARTES, nTurno++, "08:30", "14:30", [C_PACO_LUIS, C_JMF]));
-T.push(new Turno(C_MARTES, nTurno++, "08:30", "17:30", [C_JOSE_ALBERTO]));
-T.push(new Turno(C_MARTES, nTurno++, "07:30", "13:30", [C_ALFONSO]));
 T.push(new Turno(C_MARTES, nTurno++, "09:30", "20:30", [C_JANNETH]));
 T.push(new Turno(C_MARTES, nTurno++, "07:30", "14:30", [C_ESTEFANIA]));
 
@@ -71,6 +74,7 @@ T.push(
     C_GUSTAVO,
   ]),
 );
+
 T.push(
   new Turno(C_MIERCOLES, nTurno++, "08:30", "19:30", [
     C_PACO_LUIS,
