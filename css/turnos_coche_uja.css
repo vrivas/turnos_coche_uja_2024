@@ -72,8 +72,8 @@ main #contenido {
 .contenido-turnos {
   background-color: inherit;
 }
-.info-turno::hover {
-  background-color: rgba(250, 0, 0, 0.9);
+.info-turno:hover {
+  background-color: rgba(200, 200, 255, 1);
 }
 
 /* Día actual (resaltado en verde claro) */
@@ -81,6 +81,9 @@ main #contenido {
   background-color: rgba(200, 255, 200, 0.3);
 }
 #hoy .fecha-dia {
+  background-color: rgba(200, 255, 200, 1);
+}
+#hoy .info-turno:hover {
   background-color: rgba(200, 255, 200, 1);
 }
 
