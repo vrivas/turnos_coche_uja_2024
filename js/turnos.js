@@ -59,8 +59,8 @@ function Turno(
     const participantesOriginales = this.personas
       .map((p) => p.nombre)
       .join(", ");
-    this.addComentarios("Participantes originales: " + participantesOriginales);
-    this.comentarios.push("Cancelado el: " + _comentario);
+    //this.addComentarios("Participantes originales: " + participantesOriginales);
+    this.comentarios.push("Se cancela el  " + _comentario);
     this.activo = false;
     this.personas = [C_CANCELADO];
 
