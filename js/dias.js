@@ -19,13 +19,13 @@ function diaToDiv(clases = []) {
   if (this.festivo != null) clasesDia.push("no-lectivo");
 
   // Si la fecha coincide con la fecha actual del sistema, se marca como el día de hoy
-  if (this.fecha.toComparableString() == new Date().toComparableString())
+  if (this.fecha.toComparableString() == HOY.toComparableString())
     idDia = "id='hoy'";
 
   clasesDia = clasesDia.join(" ");
 
-  let divFecha = this.fecha.toDW_DD_MMM(); 
-  let divEficiencia = ""; 
+  let divFecha = this.fecha.toDW_DD_MMM();
+  let divEficiencia = "";
   let divTurnos = "";
 
   this.infoTurnos
@@ -58,16 +58,16 @@ function diaToDiv(clases = []) {
 // Objeto Dia: representa cada día del calendario
 // -------------------------------------------------------------
 function Dia(fecha) {
-  this.fecha = fecha; 
-  this.infoTurnos = []; 
+  this.fecha = fecha;
+  this.infoTurnos = [];
 
   // Método para añadir información de un turno al día
   this.addInfoTurno = function (info) {
     this.infoTurnos.push(info);
-    return this; 
+    return this;
   };
 
-  this.festivo = null; 
+  this.festivo = null;
   this.toDiv = diaToDiv; // Cada objeto Dia puede generar su propio HTML usando diaToDiv
 }
 
@@ -103,7 +103,7 @@ function rellenaDias() {
   let d = new Date(cuatrimestre.inicio);
 
   while (d <= cuatrimestre.fin) {
-    let dia = new Dia(new Date(d)); 
+    let dia = new Dia(new Date(d));
 
     modificaciones_posteriores(dia);
 

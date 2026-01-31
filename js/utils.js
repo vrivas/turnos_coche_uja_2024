@@ -23,6 +23,16 @@ const NOMBRE_DIAS = [
 ];
 const NOMBRE_DIAS_3_LETRAS = NOMBRE_DIAS.map((d) => d.substring(0, 3));
 
+const UNAFECHA = parametro("fecha");
+const HOY = UNAFECHA ? new Date(UNAFECHA) : new Date();
+function parametro(paramName) {
+  const params = location.search
+    .substring(1, location.search.length)
+    .split("&")
+    .map((e) => e.split("="))
+    .reduce((a, e) => a.concat(e), []);
+  return (value = params.indexOf(paramName)) >= 0 ? params[++value] : null;
+}
 function fecha(dia, mes, anio) {
   return new Date(anio, mes - 1, dia);
 }

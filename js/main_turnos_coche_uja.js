@@ -31,8 +31,8 @@ function ocultarNoMiTurno() {
     PREFERENCIAS_USUARIO.correo != null
   ) {
     document
-      .querySelectorAll(".no-mi-turno") 
-      .forEach((e) => (e.style.display = "none")); 
+      .querySelectorAll(".no-mi-turno")
+      .forEach((e) => (e.style.display = "none"));
   }
 }
 
@@ -64,19 +64,19 @@ function cerrarBotonX() {
 // Muestra todos los días del cuatrimestre completo
 // ----------------------------------------------------------
 function mostrarDiasCuatrimestre() {
-  mostrarDias(cuatrimestre.getTitulo(), D); 
-  cerrarBotonX(); 
+  mostrarDias(cuatrimestre.getTitulo(), D);
+  cerrarBotonX();
 }
 
 // ----------------------------------------------------------
 // Muestra únicamente el día actual
 // ----------------------------------------------------------
 function mostrarDiaHoy() {
-  let hoy = new Date();
+  //let hoy = new Date();
   mostrarDias(
-    hoy.toDW_DD_MMM_YYYY(), 
-    D.filter((d) => d.fecha.toComparableString() == hoy.toComparableString()),
-    ["dia-pantalla-completa"] 
+    HOY.toDW_DD_MMM_YYYY(),
+    D.filter((d) => d.fecha.toComparableString() == HOY.toComparableString()),
+    ["dia-pantalla-completa"],
   );
   cerrarBotonX();
 }
@@ -85,15 +85,15 @@ function mostrarDiaHoy() {
 // Muestra los días de la semana actual
 // ----------------------------------------------------------
 function mostrarDiasSemana() {
-  let hoy = new Date();
-  let diaSemana = hoy.getDay();
-  diaSemana = diaSemana == 0 ? 7 : diaSemana; 
+  //let hoy = new Date();
+  let diaSemana = HOY.getDay();
+  diaSemana = diaSemana == 0 ? 7 : diaSemana;
   let posicion = D.findIndex(
-    (d) => d.fecha.toComparableString() == hoy.toComparableString()
+    (d) => d.fecha.toComparableString() == HOY.toComparableString(),
   );
   mostrarDias(
-    "Semana, " + hoy.toDD_MMM_YYYY(),
-    D.slice(posicion - diaSemana + 1, posicion - diaSemana + 8)
+    "Semana, " + HOY.toDD_MMM_YYYY(),
+    D.slice(posicion - diaSemana + 1, posicion - diaSemana + 8),
   );
   cerrarBotonX();
 }
@@ -104,7 +104,7 @@ function mostrarDiasSemana() {
 function mostrarTurnos() {
   let divs = [];
   for (i = C_LUNES; i <= C_VIERNES; i++) {
-    divs.push(`<div class='info-dia'>${NOMBRE_DIAS[i]}</div>`); 
+    divs.push(`<div class='info-dia'>${NOMBRE_DIAS[i]}</div>`);
     T.filter((t) => t.dia == i).forEach((t) => {
       divs.push(infoTurnoToInfoDiv(t));
     });
@@ -167,8 +167,8 @@ function aceptarPreferencias() {
   PREFERENCIAS_USUARIO.nombre =
     document.getElementById("nombreSettings").innerHTML;
   guardarPreferencias(); // Se guardan en cookies/localStorage
-  actualizaDatosMostradosUsuario(); 
-  mostrarDiasCuatrimestre(); 
+  actualizaDatosMostradosUsuario();
+  mostrarDiasCuatrimestre();
 }
 
 // ----------------------------------------------------------
@@ -177,17 +177,17 @@ function aceptarPreferencias() {
 function mostrarPreferencias() {
   let divs = [];
   divs.push(
-    `<div class='aceptaCookies'>Al establecer tus preferencias, estás aceptando las cookies que usa esta web.</div>`
+    `<div class='aceptaCookies'>Al establecer tus preferencias, estás aceptando las cookies que usa esta web.</div>`,
   );
 
   divs.push(
-    `<div class='preferencias-correo'><b>Indica tu correo:</b> <input id='emailSettings' type='text' size='20' value='${PREFERENCIAS_USUARIO.correo}' nombreAntiguo='${PREFERENCIAS_USUARIO.nombre}'></div>`
+    `<div class='preferencias-correo'><b>Indica tu correo:</b> <input id='emailSettings' type='text' size='20' value='${PREFERENCIAS_USUARIO.correo}' nombreAntiguo='${PREFERENCIAS_USUARIO.nombre}'></div>`,
   );
   divs.push(
-    `<div class='preferencias-nombre'><b>Nombre: </b><span  id='nombreSettings'>${PREFERENCIAS_USUARIO.nombre}</span></div>`
+    `<div class='preferencias-nombre'><b>Nombre: </b><span  id='nombreSettings'>${PREFERENCIAS_USUARIO.nombre}</span></div>`,
   );
   divs.push(
-    `<div class='preferencias-aceptar'><button id='aceptarSettings'>Aceptar</button></div>`
+    `<div class='preferencias-aceptar'><button id='aceptarSettings'>Aceptar</button></div>`,
   );
 
   mostrarInfo("Preferencias", divs);
@@ -207,7 +207,7 @@ function mostrarPreferencias() {
 function mostrarUbicaciones() {
   let divs = [];
   divs.push(
-    `<div>Accede a la  <a target="new" href="https://maps.app.goo.gl/CQgTMidJJmatrsEk6">lista de puntos de encuentro</a>.<br>Se abre en una ventana nueva.</div>`
+    `<div>Accede a la  <a target="new" href="https://maps.app.goo.gl/CQgTMidJJmatrsEk6">lista de puntos de encuentro</a>.<br>Se abre en una ventana nueva.</div>`,
   );
   mostrarInfo("Ubicaciones", divs);
   cerrarBotonX();
@@ -216,6 +216,6 @@ function mostrarUbicaciones() {
 // ----------------------------------------------------------
 // Al cargar la página: se inicializan preferencias y vista principal
 // ----------------------------------------------------------
-cargarPreferencias(); 
-actualizaDatosMostradosUsuario(); 
-mostrarDiasCuatrimestre(); 
+cargarPreferencias();
+actualizaDatosMostradosUsuario();
+mostrarDiasCuatrimestre();
