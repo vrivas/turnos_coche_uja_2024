@@ -41,7 +41,7 @@ main #contenido {
 .dia {
   border: 1px solid rgba(200, 200, 255, 0.8);
   border-radius: 5px;
-  background-color: rgba(200, 200, 250, 0.1);
+  /*background-color: rgba(200, 200, 250, 0.1);*/
   margin: 2px;
   padding: 2px;
   float: left;
@@ -70,8 +70,12 @@ main #contenido {
 }
 
 .contenido-turnos {
-  background-color: rgba(200, 200, 250, 0.3);
+  background-color: inherit;
 }
+.info-turno::hover {
+  background-color: rgba(250, 0, 0, 0.9);
+}
+
 /* Día actual (resaltado en verde claro) */
 #hoy {
   background-color: rgba(200, 255, 200, 0.3);
@@ -148,22 +152,24 @@ main #contenido {
 }
 
 .numero-y-cambios {
-  float: left;
+  position: absolute;
   width: 3em;
   text-align: center;
   border-right: 0pt solid rgba(200, 200, 255, 0.8);
 }
 
 .horas-y-personas {
-  float: left;
   width: auto;
-  margin-left: 0.2em;
+  margin-left: 3.2em;
   max-width: 70%;
 }
 
 .info-turno {
-  border-top: 1px dashed rgba(100, 100, 255, 1);
-  padding: 1em 0.1em 2.5em 0.1em;
+  padding: 0.5em 0em 0.5em 0em;
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
+  background-color: rgba(200, 200, 250, 0.3);
+
   clear: both;
 }
 
@@ -183,6 +189,7 @@ main #contenido {
   border-top-color: rgba(100, 100, 255, 0.3);
   border-left-color: rgba(100, 100, 255, 0.3);
   border-radius: 3px;
+  background-color: inherit;
 }
 
 .info-comentarios {
