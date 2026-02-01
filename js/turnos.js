@@ -179,8 +179,10 @@ function infoTurnoToDiv(info) {
     clasesInfoTurno.push("fade-out");
   }
   let divNumTurno = `<div class='num-turno'>${cerear(info.numTurno)}</div>`;
-  let divNuevo = info.nuevo ? "<div class='etiqueta-nuevo'>N</div>" : "";
-  let divCambio = info.cambio ? "<div class='etiqueta-cambio'>M</div>" : "";
+  let divNuevo = info.nuevo ? "<div class='etiqueta-nuevo'>Nuevo</div>" : "";
+  let divCambio = info.cambio
+    ? "<div class='etiqueta-cambio'>Modificado</div>"
+    : "";
   let spanLugar = info.lugar
     ? `<span class="lugar">${info.lugar}</span><br/>`
     : "";
@@ -213,10 +215,10 @@ function infoTurnoToDiv(info) {
   return `<div class='${clasesInfoTurno}' onClick='alert("${alertTxt}")'>
         <div class='numero-y-cambios'>
             ${divNumTurno}
-            ${divNuevo}
-            ${divCambio}
         </div>
         <div class='horas-y-personas'>
+            ${divNuevo}
+            ${divCambio}
             ${divHorario}
             ${divPersonas}
         </div>
