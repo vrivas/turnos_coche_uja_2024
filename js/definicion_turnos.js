@@ -11,10 +11,9 @@ Miguel: 13:00 - 20:30 (Miguel: Hasta Semana Santa)
 // Se pueden añadir comentarios informativos con .addComentarios()
 
 T.push(
-  new Turno(C_LUNES, nTurno++, "09:30", "14:30", [
+  new Turno(C_LUNES, nTurno++, "08:30", "14:30", [
     C_INMA_BARROSO,
     C_LIDIA,
-    C_ASUN,
     C_ALFONSO,
     C_ANGEL,
   ]),
@@ -51,7 +50,7 @@ T.push(
   ]),
 );
 
-T.push(new Turno(C_MARTES, nTurno++, "08:30", "14:30", [C_PACO_LUIS, C_JMF]));
+T.push(new Turno(C_MARTES, nTurno++, "08:30", "19:30", [C_PACO_LUIS, C_JMF]));
 T.push(new Turno(C_MARTES, nTurno++, "09:30", "20:30", [C_JANNETH]));
 T.push(new Turno(C_MARTES, nTurno++, "07:30", "14:30", [C_ESTEFANIA]));
 
@@ -125,6 +124,9 @@ function modificaciones_posteriores(dia) {
     );
   }
 
+  if (fechaEs(fecha, 3, 2, 2026)) {
+    T.push(new Turno(C_MARTES, nTurno++, "07:30", "12:30", [C_PILAR]));
+  }
   /* ---
    Modificar la hora de salida o de llegada de un turno ya existente
    --- */
@@ -144,6 +146,9 @@ function modificaciones_posteriores(dia) {
   /* --- 
    Añadir un conductor extra en una fecha concreta
    --- */
+
+  if (fechaEs(fecha, 9, 2, 2026))
+    aniadirConductor(1, C_ASUN, 2, "el " + fecha.toDD_MMM(), 2);
   if (fechaEs(fecha, 18, 2, 2026))
     aniadirConductor(10, C_ANTONIO, 0, "el " + fecha.toDD_MMM(), 0);
   if (fechaEs(fecha, 19, 2, 2026))
