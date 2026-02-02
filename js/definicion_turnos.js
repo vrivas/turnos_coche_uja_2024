@@ -152,7 +152,7 @@ function modificaciones_posteriores(dia) {
   if (fechaEs(fecha, 18, 2, 2026))
     aniadirConductor(10, C_ANTONIO, 0, "el " + fecha.toDD_MMM(), 0);
   if (fechaEs(fecha, 19, 2, 2026))
-    aniadirConductor(14, C_ANTONIO, 1, "el " + fecha.toDD_MMM(), 1);
+    aniadirConductor(14, C_ANTONIO, 4, "el " + fecha.toDD_MMM(), 4);
   if (fechaEs(fecha, 10, 2, 2026))
     aniadirConductor(4, C_ALFONSO, 1, "el " + fecha.toDD_MMM(), 1);
   if (fechaEs(fecha, 11, 2, 2026))
