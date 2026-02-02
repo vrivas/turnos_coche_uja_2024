@@ -39,6 +39,12 @@ main #contenido {
   margin-right: 0.8em;
   margin-left: 0.8em;
 }
+.icono-app {
+  width: 28px;
+  height: 28px;
+  margin-right: 0.8em;
+  margin-left: 0.8em;
+}
 
 /* ======================================== */
 /* ESTILO DE LOS DÍAS EN EL CALENDARIO      */
