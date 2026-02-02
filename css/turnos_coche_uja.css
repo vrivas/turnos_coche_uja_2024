@@ -33,6 +33,13 @@ main #contenido {
   width: 77%;
 }
 
+.icono-menu-ppal {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.8em;
+  margin-left: 0.8em;
+}
+
 /* ======================================== */
 /* ESTILO DE LOS DÍAS EN EL CALENDARIO      */
 /* ======================================== */
