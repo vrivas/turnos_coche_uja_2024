@@ -64,7 +64,6 @@ Miguel: 13:00 - 20:30 (Miguel: Hasta 12 de Marzo)
 */
 T.push(
   new Turno(C_MIERCOLES, nTurno++, "08:30", "13:30", [
-    C_PILAR,
     C_SUSANA,
     C_JOSE_ALBERTO,
     C_GUSTAVO,
@@ -96,6 +95,7 @@ T.push(
     C_SUSANA,
     C_GUSTAVO,
     C_LIDIA,
+    C_PILAR,
   ]),
 );
 T.push(new Turno(C_JUEVES, nTurno++, "14:30", "18:30", [C_JANNETH]));
@@ -156,7 +156,7 @@ function modificaciones_posteriores(dia) {
   if (fechaEs(fecha, 10, 2, 2026))
     aniadirConductor(4, C_ALFONSO, 1, "el " + fecha.toDD_MMM(), 1);
   if (fechaEs(fecha, 11, 2, 2026))
-    aniadirConductor(9, C_ALFONSO, 0, "el " + fecha.toDD_MMM(), 4);
+    aniadirConductor(9, C_ALFONSO, 1, "el " + fecha.toDD_MMM(), 0);
 
   /* ----
    Eliminar a un conductor de un turno en una fecha concreta
