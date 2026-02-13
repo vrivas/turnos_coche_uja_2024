@@ -163,11 +163,13 @@ function modificaciones_posteriores(dia) {
    --- */
   if (fechaEs(fecha, 27, 3, 2026))
     eliminarConductor(11, C_DAVID, "el " + fecha.toDD_MMM(), 0);
-  if (fechaEs(fecha, 1, 12, 2025))
-    eliminarConductor(10, C_MAYCA, "el 30/nov", 0);
 
-  /* -----
-   Indicar que un día concreto no habrá turno (por ejemplo, huelga)
-   --- */
-  if (fechaEs(fecha, 14, 2, 2024)) sinTurno(11, 3, "Huelga de agricultores", 3);
+  // Fusionamos dos turnos porque de 6 pasan a 5
+  if (fechaEs(fecha, 13, 2, 2026)) {
+    eliminarConductor(4, C_ASUN, "el " + fecha.toDD_MMM(), 0);
+    aniadirConductor(5, C_ALFONSO, 1, "el " + fecha.toDD_MMM(), 0);
+    aniadirConductor(5, C_GUSTAVO, 1, "el " + fecha.toDD_MMM(), 0);
+    T[5 - 1].setContador(2);
+    cancelarTurno(4, fecha.toDD_MMM() + " por fusión con turno 5");
+  }
 }
