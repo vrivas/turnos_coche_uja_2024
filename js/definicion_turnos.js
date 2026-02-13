@@ -178,6 +178,9 @@ function modificaciones_posteriores(dia) {
    --- */
   if (fechaEs(fecha, 27, 3, 2026))
     eliminarConductor(11, C_DAVID, fecha.toDD_MMM(), 0);
+
+  if (fechaEs(fecha, 13, 2, 2026))
+    eliminarConductor(1, C_ASUN, fecha.toDD_MMM(), 2);
   if (fechaEs(fecha, 12, 3, 2026))
     eliminarConductor(12, C_MIGUEL, fecha.toDD_MMM(), 0);
 
