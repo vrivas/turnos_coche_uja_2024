@@ -135,13 +135,27 @@ function modificaciones_posteriores(dia) {
     T[2 - 1].hayCambios(); // Se marca el turno como modificado
   }
 
+  if (fechaEs(fecha, 13, 2, 2026)) {
+    T[12 - 1].hora_gr = "14:20"; // Cambia la hora de llegada
+    T[12 - 1].addComentarios(
+      "13/feb: se modifica la hora de salida a las 14:20.",
+    );
+    T[12 - 1].hayCambios(); // Se marca el turno como modificado
+  }
+  if (fechaEs(fecha, 12, 3, 2026)) {
+    T[12 - 1].hora_gr = "15:30"; // Cambia la hora de llegada
+    T[12 - 1].hora_ja = "19:30"; // Cambia la hora de salida
+    T[12 - 1].addComentarios(
+      "12/mar: se modifica el horario de 15:30 a 19:30.",
+    );
+    T[12 - 1].hayCambios(); // Se marca el turno como modificado
+  }
   /* ----
-   Eliminar un turno en días específicos (por festivo o ausencia)
+   Eliminar un turno 
    --- */
   if (fechaEs(fecha, 30, 3, 2026)) cancelarTurno(3, fecha.toDD_MMM());
   if (fechaEs(fecha, 29, 4, 2026)) cancelarTurno(8, fecha.toDD_MMM());
   if (fechaEs(fecha, 29, 4, 2026)) cancelarTurno(11, fecha.toDD_MMM());
-  if (fechaEs(fecha, 12, 3, 2026)) cancelarTurno(12, fecha.toDD_MMM());
 
   /* --- 
    Añadir un conductor extra en una fecha concreta
@@ -157,12 +171,15 @@ function modificaciones_posteriores(dia) {
     aniadirConductor(4, C_ALFONSO, 1, "el " + fecha.toDD_MMM(), 1);
   if (fechaEs(fecha, 11, 2, 2026))
     aniadirConductor(9, C_ALFONSO, 1, "el " + fecha.toDD_MMM(), 0);
-
+  if (fechaEs(fecha, 13, 2, 2026))
+    aniadirConductor(12, C_ASUN, 0, "el " + fecha.toDD_MMM(), 0);
   /* ----
    Eliminar a un conductor de un turno en una fecha concreta
    --- */
   if (fechaEs(fecha, 27, 3, 2026))
     eliminarConductor(11, C_DAVID, "el " + fecha.toDD_MMM(), 0);
+  if (fechaEs(fecha, 12, 3, 2026))
+    eliminarConductor(12, C_MIGUEL, " el " + fecha.toDD_MMM(), 0);
 
   // Fusionamos dos turnos porque de 6 pasan a 5
   if (fechaEs(fecha, 13, 2, 2026)) {
