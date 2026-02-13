@@ -31,12 +31,14 @@ function Turno(
   this.cambio = false;
   this.activo = true;
 
-  this.addProfesor = function (_profesor, _pos, _com) {
+  this.addProfesor = function (_profesor, _pos, _fecha, _com = "") {
     this.personas = this.personas
       .slice(0, _pos)
       .concat([_profesor])
       .concat(this.personas.slice(_pos));
-    this.addComentarios("Se añade a " + _profesor.nombre + " " + _com);
+    this.addComentarios(
+      _fecha + ": se añade a " + _profesor.nombre + " " + _com,
+    );
     return this;
   };
   this.addComentarios = function (_comentario) {
@@ -54,13 +56,13 @@ function Turno(
   };
 
   //Funcion cancelar cambiada para que aparezca los participantes originales en los comentarios del turno
-  this.cancelar = function (_comentario) {
+  this.cancelar = function (_fecha, _comentario = "") {
     // Guardamos los nombres de las personas antes de cancelar
     const participantesOriginales = this.personas
       .map((p) => p.nombre)
       .join(", ");
     //this.addComentarios("Participantes originales: " + participantesOriginales);
-    this.comentarios.push("Se cancela el turno el " + _comentario);
+    this.comentarios.push(_fecha + ": se cancela el turno " + _comentario);
     this.activo = false;
     this.personas = [C_CANCELADO];
 
@@ -256,7 +258,13 @@ function cancelarTurno(numCoche, comentario) {
 }
 
 // Función para eliminar un conductor de un turno
-function eliminarConductor(numCoche, conductor, comentario, contador) {
+function eliminarConductor(
+  numCoche,
+  conductor,
+  _fecha,
+  contador,
+  comentario = "",
+) {
   var tmpCo = T[numCoche - 1];
   if (tmpCo) {
     var pos = tmpCo.personas.indexOf(conductor);
@@ -269,7 +277,9 @@ function eliminarConductor(numCoche, conductor, comentario, contador) {
       }
       tmpCo
         .setContador(contador)
-        .addComentarios("Se elimina a " + conductor.nombre + " " + comentario)
+        .addComentarios(
+          _fecha + ": se elimina a " + conductor.nombre + " " + comentario,
+        )
         .hayCambios();
     }
   }

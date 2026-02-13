@@ -138,7 +138,7 @@ function modificaciones_posteriores(dia) {
   if (fechaEs(fecha, 13, 2, 2026)) {
     T[12 - 1].hora_gr = "14:20"; // Cambia la hora de llegada
     T[12 - 1].addComentarios(
-      "13/feb: se modifica la hora de salida a las 14:20.",
+      "13-feb: se modifica la hora de salida a las 14:20.",
     );
     T[12 - 1].hayCambios(); // Se marca el turno como modificado
   }
@@ -146,7 +146,7 @@ function modificaciones_posteriores(dia) {
     T[12 - 1].hora_gr = "15:30"; // Cambia la hora de llegada
     T[12 - 1].hora_ja = "19:30"; // Cambia la hora de salida
     T[12 - 1].addComentarios(
-      "12/mar: se modifica el horario de 15:30 a 19:30.",
+      "12-mar: se modifica el horario de 15:30 a 19:30.",
     );
     T[12 - 1].hayCambios(); // Se marca el turno como modificado
   }
@@ -162,30 +162,30 @@ function modificaciones_posteriores(dia) {
    --- */
 
   if (fechaEs(fecha, 9, 2, 2026))
-    aniadirConductor(1, C_ASUN, 2, "el " + fecha.toDD_MMM(), 2);
+    aniadirConductor(1, C_ASUN, 2, fecha.toDD_MMM(), 2);
   if (fechaEs(fecha, 18, 2, 2026))
-    aniadirConductor(10, C_ANTONIO, 0, "el " + fecha.toDD_MMM(), 0);
+    aniadirConductor(10, C_ANTONIO, 0, fecha.toDD_MMM(), 0);
   if (fechaEs(fecha, 19, 2, 2026))
-    aniadirConductor(14, C_ANTONIO, 4, "el " + fecha.toDD_MMM(), 4);
+    aniadirConductor(14, C_ANTONIO, 4, fecha.toDD_MMM(), 4);
   if (fechaEs(fecha, 10, 2, 2026))
-    aniadirConductor(4, C_ALFONSO, 1, "el " + fecha.toDD_MMM(), 1);
+    aniadirConductor(4, C_ALFONSO, 1, fecha.toDD_MMM(), 1);
   if (fechaEs(fecha, 11, 2, 2026))
-    aniadirConductor(9, C_ALFONSO, 1, "el " + fecha.toDD_MMM(), 0);
+    aniadirConductor(9, C_ALFONSO, 1, fecha.toDD_MMM(), 0);
   if (fechaEs(fecha, 13, 2, 2026))
-    aniadirConductor(12, C_ASUN, 0, "el " + fecha.toDD_MMM(), 0);
+    aniadirConductor(12, C_ASUN, 0, fecha.toDD_MMM(), 0);
   /* ----
    Eliminar a un conductor de un turno en una fecha concreta
    --- */
   if (fechaEs(fecha, 27, 3, 2026))
-    eliminarConductor(11, C_DAVID, "el " + fecha.toDD_MMM(), 0);
+    eliminarConductor(11, C_DAVID, fecha.toDD_MMM(), 0);
   if (fechaEs(fecha, 12, 3, 2026))
-    eliminarConductor(12, C_MIGUEL, " el " + fecha.toDD_MMM(), 0);
+    eliminarConductor(12, C_MIGUEL, fecha.toDD_MMM(), 0);
 
   // Fusionamos dos turnos porque de 6 pasan a 5
   if (fechaEs(fecha, 13, 2, 2026)) {
-    eliminarConductor(4, C_ASUN, "el " + fecha.toDD_MMM(), 0);
-    aniadirConductor(5, C_ALFONSO, 1, "el " + fecha.toDD_MMM(), 0);
-    aniadirConductor(5, C_GUSTAVO, 1, "el " + fecha.toDD_MMM(), 0);
+    eliminarConductor(4, C_ASUN, fecha.toDD_MMM(), 0);
+    aniadirConductor(5, C_ALFONSO, 1, fecha.toDD_MMM(), 0);
+    aniadirConductor(5, C_GUSTAVO, 1, fecha.toDD_MMM(), 0);
     T[5 - 1].setContador(2);
     cancelarTurno(4, fecha.toDD_MMM() + " por fusión con turno 5");
   }
