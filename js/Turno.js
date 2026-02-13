@@ -252,9 +252,9 @@ function aniadirConductor(numCoche, conductor, posicion, comentario, contador) {
 }
 
 // Clase para cancelar un turno llamando a su método cancelar
-function cancelarTurno(numCoche, comentario) {
+function cancelarTurno(numCoche, _fecha, comentario = "") {
   var tmpCo = T[numCoche - 1];
-  if (tmpCo) tmpCo.cancelar(comentario);
+  if (tmpCo) tmpCo.cancelar(_fecha, comentario);
 }
 
 // Función para eliminar un conductor de un turno
