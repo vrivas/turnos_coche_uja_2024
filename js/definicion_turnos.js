@@ -113,6 +113,10 @@ function modificaciones_posteriores(dia) {
   var fecha = dia.fecha; // Se obtiene la fecha del día actual mostrado en el calendario.
 
   /* ----
+  Cambiar quién conduce un día
+  ----- */
+
+  /* ----
    Añadir nuevos coches o turnos a partir de una fecha concreta
    --- */
 
@@ -168,7 +172,7 @@ function modificaciones_posteriores(dia) {
   if (fechaEs(fecha, 19, 2, 2026))
     aniadirConductor(14, C_ANTONIO, 4, fecha.toDD_MMM(), 4);
   if (fechaEs(fecha, 10, 2, 2026))
-    aniadirConductor(4, C_ALFONSO, 1, fecha.toDD_MMM(), 1);
+    aniadirConductor(4, C_ALFONSO, 1, fecha.toDD_MMM(), 0);
   if (fechaEs(fecha, 11, 2, 2026))
     aniadirConductor(9, C_ALFONSO, 1, fecha.toDD_MMM(), 0);
   if (fechaEs(fecha, 13, 2, 2026))
@@ -189,7 +193,14 @@ function modificaciones_posteriores(dia) {
     eliminarConductor(4, C_ASUN, fecha.toDD_MMM(), 0);
     aniadirConductor(5, C_ALFONSO, 1, fecha.toDD_MMM(), 0);
     aniadirConductor(5, C_GUSTAVO, 1, fecha.toDD_MMM(), 0);
-    T[5 - 1].setContador(2);
+    T[5 - 1].personas = [
+      C_ALFONSO,
+      C_LIDIA,
+      C_GUSTAVO,
+      C_INMA_BARROSO,
+      C_JOSE_ALBERTO,
+    ];
+    T[5 - 1].setContador(0);
     cancelarTurno(4, fecha.toDD_MMM() + " por fusión con turno 5");
   }
 }
