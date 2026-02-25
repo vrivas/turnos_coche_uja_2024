@@ -18,6 +18,7 @@ function mostrarDias(titulo, dias = [], clases = []) {
       : msj;
 
   divContenido.innerHTML = msj;
+  setTimeout('location.href = "#hoy"', 1 * 1000);
 
   setTimeout(ocultarNoMiTurno, 5 * 1000);
 }
