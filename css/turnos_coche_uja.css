@@ -206,7 +206,7 @@ main #contenido {
   border-top-color: rgba(100, 100, 255, 0.3);
   border-left-color: rgba(100, 100, 255, 0.3);
   border-radius: 3px;
-  background-color: inherit;
+  background-color: white;
   padding-top: 0.5em;
   height: 2.4em;
 }
