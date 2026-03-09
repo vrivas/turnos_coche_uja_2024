@@ -179,6 +179,8 @@ function modificaciones_posteriores(dia) {
     aniadirConductor(12, C_ASUN, 0, fecha.toDD_MMM(), 0);
   if (fechaEs(fecha, 26, 2, 2026))
     aniadirConductor(13, C_VICTOR, 1, fecha.toDD_MMM(), 0);
+  if (fechaEs(fecha, 9, 3, 2026))
+    aniadirConductor(13, C_SILVIA, 2, fecha.toDD_MMM(), 2);
 
   /* ----
    Eliminar a un conductor de un turno en una fecha concreta
