@@ -120,7 +120,6 @@ function modificaciones_posteriores(dia) {
   ----- */
   if (fechaEs(fecha, 19, 3, 2026)) {
     T.get(13).diasNoVa.push({ fecha: fecha, motivo: "Festivo en EPSJ" });
-    T.get(13).hayCambios();
     // Adicionalmente, intercambio los turnos de Nacho y Victor:
     T.get(13).personas[1] = C_NACHO;
     T.get(13).personas[0] = C_VICTOR;
