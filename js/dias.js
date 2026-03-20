@@ -111,7 +111,13 @@ function rellenaDias() {
 
     if (dia.festivo == null) {
       for (let t of T) {
-        if (t.dia == d.getDay() && t.activo) {
+        let esUnDiaQueNoVa = false;
+        for (let i = 0; i < t.diasNoVa.length && !esUnDiaQueNoVa; ++i) {
+          esUnDiaQueNoVa =
+            t.diasNoVa[i].fecha.toComparableString() == d.toComparableString();
+        }
+
+        if (t.dia == d.getDay() && t.activo && !esUnDiaQueNoVa) {
           if (
             comparaFechas(t.fechaInicio, d) <= 0 &&
             comparaFechas(t.fechaFin, d) >= 0

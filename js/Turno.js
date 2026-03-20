@@ -30,7 +30,7 @@ function Turno(
   this.nuevo = true;
   this.cambio = false;
   this.activo = true;
-
+  this.diasNoVa = [];
   this.addProfesor = function (_profesor, _pos, _fecha, _com = "") {
     this.personas = this.personas
       .slice(0, _pos)

@@ -115,6 +115,12 @@ function modificaciones_posteriores(dia) {
   /* ----
   Cambiar quién conduce un día
   ----- */
+  /* ----
+  Un día no va un turno
+  ----- */
+  if (fechaEs(fecha, 19, 3, 2026)) {
+    T[13 - 1].diasNoVa.push({ fecha: fecha, motivo: "Festivo en EPSJ" });
+  }
 
   /* ----
    Añadir nuevos coches o turnos a partir de una fecha concreta
