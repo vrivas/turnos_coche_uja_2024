@@ -111,23 +111,35 @@ function rellenaDias() {
 
     if (dia.festivo == null) {
       for (let t of T) {
-        let esUnDiaQueNoVa = false;
-        for (let i = 0; i < t.diasNoVa.length && !esUnDiaQueNoVa; ++i) {
-          esUnDiaQueNoVa =
-            t.diasNoVa[i].fecha.toComparableString() == d.toComparableString();
+        let indiceDiaQueNoVa = -1;
+        for (let i = 0; i < t.diasNoVa.length && indiceDiaQueNoVa == -1; ++i) {
+          indiceDiaQueNoVa =
+            t.diasNoVa[i].fecha.toComparableString() == d.toComparableString()
+              ? i
+              : -1;
+        }
+        // Una vez comtemplado el día que no va un turno, lo elimino de su lista.
+        let motivoDiaQueNoVa =
+          indiceDiaQueNoVa == -1 ? null : t.diasNoVa[indiceDiaQueNoVa].motivo;
+        if (indiceDiaQueNoVa != -1) {
+          t.diasNoVa
+            .slice(0, indiceDiaQueNoVa)
+            .concat(t.diasNoVa.slice(indiceDiaQueNoVa + 1));
         }
 
-        if (t.dia == d.getDay() && t.activo && !esUnDiaQueNoVa) {
+        if (t.dia == d.getDay() && t.activo) {
           if (
             comparaFechas(t.fechaInicio, d) <= 0 &&
             comparaFechas(t.fechaFin, d) >= 0
           ) {
-            let info = t.getInfoParaDia();
+            let info = t.getInfoParaDia(motivoDiaQueNoVa);
 
-            P.find((p) => p.nombre == info.conductor).conducciones.push({
-              fecha: new Date(d),
-              turno: info.numTurno,
-            });
+            if (indiceDiaQueNoVa == -1) {
+              P.find((p) => p.nombre == info.conductor).conducciones.push({
+                fecha: new Date(d),
+                turno: info.numTurno,
+              });
+            }
 
             dia.addInfoTurno(info);
           }

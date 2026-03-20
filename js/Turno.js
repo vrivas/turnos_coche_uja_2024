@@ -88,11 +88,14 @@ function Turno(
   // Actualiza el contador
   // Actualiza si el conductor ha conducido o no
   // Actualiza si hay cambios o no
-  this.getInfoParaDia = function () {
+  // @param motivoDiaQueNova Si es un día que este turno no va, aquí se guarda el motivo.
+  this.getInfoParaDia = function (motivoDiaQueNoVa = null) {
     if (!this.activo) return null;
+    let noVa = motivoDiaQueNoVa != null;
     let info = {
       diaSemana: NOMBRE_DIAS[this.dia],
       numTurno: this.numTurno,
+      // APROVECHO LA HORA IDA Y VENIDA PARA EXPLICAR POR QUÉ NO VA
       hora_gr: this.hora_gr,
       hora_j: this.hora_j,
       conductor: this.personas[this.contador].nombre,
@@ -115,9 +118,17 @@ function Turno(
       correos: this.correos,
     };
 
-    this.incrementaContador();
     this.nuevo = false;
     this.cambio = false;
+    if (noVa) {
+      info.conductor = motivoDiaQueNoVa;
+      info.correo_conductor = "";
+      info.acompanantes = this.personas.map((p) => p.nombre);
+      info.correos_acompanantes == this.personas.map((p) => p.correo);
+    } else {
+      this.incrementaContador();
+    }
+
     return info;
   };
 } // Fin clase Turno
