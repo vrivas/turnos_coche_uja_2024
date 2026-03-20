@@ -115,6 +115,12 @@ function mostrarTurnos() {
 }
 
 // ----------------------------------------------------------
+// Muestra la versión de la app
+// ----------------------------------------------------------
+function mostrarAppVersion() {
+  document.getElementById("app_version").innerHTML = APP_VERSION;
+}
+// ----------------------------------------------------------
 // Muestra la información de todas las personas activas
 // ----------------------------------------------------------
 function mostrarPersonas() {
@@ -219,4 +225,5 @@ function mostrarUbicaciones() {
 // ----------------------------------------------------------
 cargarPreferencias();
 actualizaDatosMostradosUsuario();
+mostrarAppVersion();
 mostrarDiasCuatrimestre();

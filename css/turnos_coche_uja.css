@@ -245,7 +245,12 @@ main #contenido {
 .conducciones {
   padding-left: 2em;
 }
-
+#app_version {
+  margin-top: 5px;
+  border-top: 1px solid var(--gris-claro);
+  font-size: 70%;
+  text-align: right;
+}
 b {
   font-weight: bold;
 }
