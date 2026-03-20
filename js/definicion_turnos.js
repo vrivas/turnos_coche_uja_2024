@@ -115,6 +115,15 @@ function modificaciones_posteriores(dia) {
   /* ----
   Cambiar quién conduce un día
   ----- */
+  /* ----
+  Un día no va un turno
+  ----- */
+  if (fechaEs(fecha, 19, 3, 2026)) {
+    T.get(13).diasNoVa.push({ fecha: fecha, motivo: "Festivo en EPSJ" });
+    // Adicionalmente, intercambio los turnos de Nacho y Victor:
+    T.get(13).personas[1] = C_NACHO;
+    T.get(13).personas[0] = C_VICTOR;
+  }
 
   /* ----
    Añadir nuevos coches o turnos a partir de una fecha concreta
@@ -192,6 +201,8 @@ function modificaciones_posteriores(dia) {
     eliminarConductor(1, C_ASUN, fecha.toDD_MMM(), 2);
   if (fechaEs(fecha, 12, 3, 2026))
     eliminarConductor(12, C_MIGUEL, fecha.toDD_MMM(), 0);
+  if (fechaEs(fecha, 7, 5, 2026))
+    eliminarConductor(13, C_VICTOR, fecha.toDD_MMM(), 1);
 
   // Fusionamos dos turnos porque de 6 pasan a 5
   if (fechaEs(fecha, 13, 2, 2026)) {

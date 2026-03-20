@@ -1,6 +1,9 @@
 // VEctor de Turnos
 var T = [];
-
+// Devuelve un turno por su número.
+T.get = function (num) {
+  return T[num - 1];
+};
 // Clase Turno
 function Turno(
   _dia,
@@ -30,7 +33,7 @@ function Turno(
   this.nuevo = true;
   this.cambio = false;
   this.activo = true;
-
+  this.diasNoVa = [];
   this.addProfesor = function (_profesor, _pos, _fecha, _com = "") {
     this.personas = this.personas
       .slice(0, _pos)
@@ -85,11 +88,14 @@ function Turno(
   // Actualiza el contador
   // Actualiza si el conductor ha conducido o no
   // Actualiza si hay cambios o no
-  this.getInfoParaDia = function () {
+  // @param motivoDiaQueNova Si es un día que este turno no va, aquí se guarda el motivo.
+  this.getInfoParaDia = function (motivoDiaQueNoVa = null) {
     if (!this.activo) return null;
+    let noVa = motivoDiaQueNoVa != null;
     let info = {
       diaSemana: NOMBRE_DIAS[this.dia],
       numTurno: this.numTurno,
+      // APROVECHO LA HORA IDA Y VENIDA PARA EXPLICAR POR QUÉ NO VA
       hora_gr: this.hora_gr,
       hora_j: this.hora_j,
       conductor: this.personas[this.contador].nombre,
@@ -110,11 +116,21 @@ function Turno(
       cambio: this.cambio,
       contador: this.contador,
       correos: this.correos,
+      no_va: false, // indica si este día este turno va o no va, por algún motivo excepcional
     };
 
-    this.incrementaContador();
     this.nuevo = false;
     this.cambio = false;
+    if (noVa) {
+      info.conductor = motivoDiaQueNoVa;
+      info.correo_conductor = "";
+      info.acompanantes = this.personas.map((p) => p.nombre);
+      info.correos_acompanantes == this.personas.map((p) => p.correo);
+      info.no_va = true;
+    } else {
+      this.incrementaContador();
+    }
+
     return info;
   };
 } // Fin clase Turno
@@ -123,6 +139,7 @@ function infoTurnoToInfoDiv(turno) {
   if (turno == null) return "A";
   let msj = "";
   let clasesInfoTurno = ["info-turno"];
+
   let divNumTurno = `<div class='num-turno'>${cerear(turno.numTurno)}</div>`;
   let divNuevo = null; //info.nuevo ? "<div class='etiqueta-nuevo'>N</div>" : "";
   let divCambio = null; //info.cambio ? "<div class='etiqueta-cambio'>M</div>" : "";
@@ -180,7 +197,11 @@ function infoTurnoToDiv(info) {
     clasesInfoTurno.push("no-mi-turno");
     clasesInfoTurno.push("fade-out");
   }
-  let divNumTurno = `<div class='num-turno'>${cerear(info.numTurno)}</div>`;
+  if (info.no_va) {
+    clasesInfoTurno.push("turno-no-va");
+  }
+  const clasesNumTurno = "num-turno " + (info.no_va ? "turno-no-va " : "");
+  let divNumTurno = `<div class='${clasesNumTurno}'>${cerear(info.numTurno)}</div>`;
   let divNuevo = info.nuevo ? "<div class='etiqueta-nuevo'>Nuevo</div>" : "";
   let divCambio = info.cambio
     ? "<div class='etiqueta-cambio'>Modificado</div>"
@@ -190,12 +211,13 @@ function infoTurnoToDiv(info) {
     : "";
   let divHorario = `<div class='horario'>${spanLugar}${info.hora_gr}↔${info.hora_j}</div>`;
   // Compruebo si conduce o si es acompañante
-  const clasesConductor = "nombre-conductor "; /*+
+  const clasesConductor =
+    "nombre-conductor " + (info.no_va ? "turno-no-va " : ""); /*+
     (info.correo_conductor == PREFERENCIAS_USUARIO.correo
       ? "soy-conductor"
       : "");*/
-
-  const clasesAcompanantes = "nombres-acompanantes "; /*+
+  const clasesAcompanantes =
+    "nombres-acompanantes " + (info.no_va ? "turno-no-va " : ""); /*+
     (info.correos_acompanantes.includes(PREFERENCIAS_USUARIO.correo)
       ? "soy-acompanante"
       : "");*/
