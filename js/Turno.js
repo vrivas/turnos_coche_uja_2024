@@ -1,6 +1,9 @@
 // VEctor de Turnos
 var T = [];
-
+// Devuelve un turno por su número.
+T.get = function (num) {
+  return T[num - 1];
+};
 // Clase Turno
 function Turno(
   _dia,
