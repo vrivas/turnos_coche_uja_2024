@@ -119,7 +119,7 @@ function modificaciones_posteriores(dia) {
   Un día no va un turno
   ----- */
   if (fechaEs(fecha, 19, 3, 2026)) {
-    T.get(13).diasNoVa.push({ fecha: fecha, motivo: "Festivo en EPSJ" });
+    noVa(13, fecha, "Festivo en EPSJ");
     // Adicionalmente, intercambio los turnos de Nacho y Victor:
     T.get(13).personas[1] = C_NACHO;
     T.get(13).personas[0] = C_VICTOR;
@@ -144,24 +144,24 @@ function modificaciones_posteriores(dia) {
    Modificar la hora de salida o de llegada de un turno ya existente
    --- */
   if (fechaEs(fecha, 30, 3, 2026)) {
-    T[2 - 1].hora_gr = "15:30"; // Cambia la hora de llegada
-    T[2 - 1].hayCambios(); // Se marca el turno como modificado
+    T.get(2).hora_gr = "15:30"; // Cambia la hora de llegada
+    T.get(2).hayCambios(); // Se marca el turno como modificado
   }
 
   if (fechaEs(fecha, 13, 2, 2026)) {
-    T[12 - 1].hora_gr = "14:20"; // Cambia la hora de llegada
-    T[12 - 1].addComentarios(
+    T.get(12).hora_gr = "14:20"; // Cambia la hora de llegada
+    T.get(12).addComentarios(
       "13-feb: se modifica la hora de salida a las 14:20.",
     );
-    T[12 - 1].hayCambios(); // Se marca el turno como modificado
+    T.get(12).hayCambios(); // Se marca el turno como modificado
   }
   if (fechaEs(fecha, 12, 3, 2026)) {
-    T[12 - 1].hora_gr = "15:30"; // Cambia la hora de llegada
-    T[12 - 1].hora_ja = "19:30"; // Cambia la hora de salida
-    T[12 - 1].addComentarios(
+    T.get(12).hora_gr = "15:30"; // Cambia la hora de llegada
+    T.get(12).hora_ja = "19:30"; // Cambia la hora de salida
+    T.get(12).addComentarios(
       "12-mar: se modifica el horario de 15:30 a 19:30.",
     );
-    T[12 - 1].hayCambios(); // Se marca el turno como modificado
+    T.get(12).hayCambios(); // Se marca el turno como modificado
   }
   /* ----
    Eliminar un turno 
@@ -216,7 +216,7 @@ function modificaciones_posteriores(dia) {
       C_INMA_BARROSO,
       C_JOSE_ALBERTO,
     ];
-    T[5 - 1].setContador(0);
+    T.get(5).setContador(0);
     cancelarTurno(4, fecha.toDD_MMM() + " por fusión con turno 5");
   }
 }
