@@ -279,6 +279,11 @@ function cancelarTurno(numCoche, _fecha, comentario = "") {
   if (tmpCo) tmpCo.cancelar(_fecha, comentario);
 }
 
+// Un día un turno no va
+function noVa(numCoche, _fecha, _motivo = "No se indicó motivo") {
+  T.get(numCoche).diasNoVa.push({ fecha: _fecha, motivo: _motivo });
+}
+
 // Función para eliminar un conductor de un turno
 function eliminarConductor(
   numCoche,
