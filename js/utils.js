@@ -1,4 +1,4 @@
-const APP_VERSION = "v260320.1";
+const APP_VERSION = "v260904.1";
 const NOMBRE_MESES_3_LETRAS = [
   "ene",
   "feb",
