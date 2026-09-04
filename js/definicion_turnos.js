@@ -1,110 +1,113 @@
 /*
 Lunes: 
-Nacho: 12:30 - 17:30 (Nacho: a partir del 23 de febrero)
-Inma, Lidia, Asun, Alfonso, Ángel: 08:30 - 14:30
-Janneth: 14:30 - 18:30 (hasta 23 de marzo)
-Janneth 15:30 - 18:30 (a partir del 30 de marzo)
-Miguel: 13:00 - 20:30 (Miguel: Hasta Semana Santa)
+Nacho: 9:30 - 16:30
+Alfonso, Jose Alberto, Estefanía: 8:30-13:30
+
 */
 
 // Se crean los turnos del lunes, con hora de inicio, fin y los conductores asignados.
 // Se pueden añadir comentarios informativos con .addComentarios()
 
+T.push(new Turno(C_LUNES, nTurno++, "09:30", "16:30", [C_NACHO]));
 T.push(
-  new Turno(C_LUNES, nTurno++, "08:30", "14:30", [
-    C_INMA_BARROSO,
-    C_LIDIA,
+  new Turno(C_LUNES, nTurno++, "08:30", "13:30", [
     C_ALFONSO,
-    C_ANGEL,
+    C_JOSE_ALBERTO,
+    C_ESTEFANIA,
   ]),
-);
-T.push(
-  new Turno(C_LUNES, nTurno++, "14:30", "18:30", [C_JANNETH])
-    .addComentarios("Desde las 14:30 hasta el 23/Mar/2026")
-    .addComentarios("Desde las 15:30 a partir del 30/Mar/2026"),
-);
-T.push(
-  new Turno(C_LUNES, nTurno++, "13:00", "20:30", [C_MIGUEL]).addComentarios(
-    "Hasta Semana Santa",
-  ),
 );
 
 /*
 Martes:
-Pilar Sánchez: 7:30-12:30
-Gustavo, Inma, Jose Alberto, Lidia, Alfonso, Asun (nos partimos en 2 coches? -> (lidia) yo sugiero hacer uno porque si alguien falla se puede ir en un solo coche)
-(Asun), somos 6 personas, no cojemos en un solo coche -> ya se hizo una vez, se van 2 coches habitualmente pero si alguien falla se puede ir en uno): 8:30-14:30
-Paco Luis, José Manuel : 8:30 - 19:30
-Janneth (provisional): 9:30 - 20:30 
-Estefanía: 7:30-14:30 (hasta 29 abril) 
+Susana: 8:30-13:30 (a partir del 12 de octubre) 
+Alfonso, Inma, Jose Alberto, Susana,Estefanía:  8:30-14:30    (Susana hasta el 6 de octubre, inclusive)
+Joaquín: 7:30 - 14:30
+Paco luis, Ángel, Asun:8:30-19:30 (Asun a partir del 6 de octubre)
+Asun: 14:30-19:30 (Asun: desde el 15 al 29 de septiembre)
+
 */
 
 // Cada línea crea un turno de martes con los conductores y horarios indicados.
 // Se pueden añadir comentarios informativos con .addComentarios()
-T.push(new Turno(C_MARTES, nTurno++, "08:30", "14:30", [C_GUSTAVO, C_ASUN]));
 T.push(
   new Turno(C_MARTES, nTurno++, "08:30", "14:30", [
+    C_ALFONSO,
     C_INMA_BARROSO,
     C_JOSE_ALBERTO,
-    C_LIDIA,
-  ]),
+    C_SUSANA,
+    C_ESTEFANIA,
+  ]).addComentarios("Suana hasta el 6 de octubre inclusive"),
 );
+T.push(new Turno(C_MARTES, nTurno++, "07:30", "14:30", [C_JOAQUIN]));
 
-T.push(new Turno(C_MARTES, nTurno++, "08:30", "19:30", [C_PACO_LUIS, C_JMF]));
-T.push(new Turno(C_MARTES, nTurno++, "09:30", "20:30", [C_JANNETH]));
-T.push(new Turno(C_MARTES, nTurno++, "07:30", "14:30", [C_ESTEFANIA]));
+T.push(
+  new Turno(C_MARTES, nTurno++, "08:30", "19:30", [
+    C_PACO_LUIS,
+    C_ANGEL,
+  ]).addComentarios("Asun a partir del 6 de octubre"),
+);
+T.push(
+  new Turno(C_MARTES, nTurno++, "14:30", "19:30", [C_ASUN]).addComentarios(
+    "Del 15 al 29 de septiembre",
+  ),
+);
 
 /*
 Miércoles:
-Pilar Sánchez, Susana Ruiz, Jose Alberto, Alfonso, Gustavo: 8:30-13:30 
-Paco Luis, Ángel, Antonio Rueda (comienzo el 18-02), José Manuel: 8:30 19:30
-Estefanía (hasta 29 abril), David (sólo hasta 27 marzo, Semana Santa): 7:30-14:30
-Miguel: 13:00 - 20:30 (Miguel: Hasta 12 de Marzo)
-
+???? Inma, Lidia, Susana, Asun, Estefanía, Alfonso: 8:30 - 14:30 (Asun a partir del 28 de octubre)(Estefanía a partir de 7 de octubre), (Alfonso también después de la feria el 21 de octubre). Gustavo. Me cambio cuando estéis ya los 5.
+Asun: 7:30-14:30 (hasta el 21 de octubre)
+José Manuel, Antonio, Paco luis : 8:30-19:30
+Joaquín: 14:30 - 20:30
 */
 T.push(
-  new Turno(C_MIERCOLES, nTurno++, "08:30", "13:30", [
-    C_SUSANA,
-    C_JOSE_ALBERTO,
-    C_GUSTAVO,
-  ]).setContador(2),
+  new Turno(C_MIERCOLES, nTurno++, "07:30", "14:30", [C_ASUN]).addComentarios(
+    "hasta el 21 de octubre",
+  ),
 );
 
 T.push(
   new Turno(C_MIERCOLES, nTurno++, "08:30", "19:30", [
     C_PACO_LUIS,
-    C_ANGEL,
+    C_ANTONIO,
     C_JMF,
   ]),
 );
-T.push(
-  new Turno(C_MIERCOLES, nTurno++, "07:30", "14:30", [C_ESTEFANIA, C_DAVID]),
-);
-T.push(new Turno(C_MIERCOLES, nTurno++, "13:00", "20:30", [C_MIGUEL]));
+T.push(new Turno(C_MIERCOLES, nTurno++, "14:30", "20:30", [C_JOAQUIN]));
 
 /*
 Jueves: creación de turnos similares con comentarios de flexibilidad y límites temporales
-Nacho: 8:30 - 17:30
-Susana Ruiz, Gustavo, Antonio Rueda(comienzo el 19-02), Lidia: 8:20-14:00
-Janneth: 14:30 - 18:30
+Nacho: 9:30 - 16:30
+Susana, Gustavo, Silvia, Lidia: 8:15 - 14:30 (lo dejamos a las 8,30? Yo tengo la prisa de que empiezo las clases a las 9,30 pero creo que llegamos → si yo creo que podemos dejarlo a las 8:30h) 
+Antonio: ida flexible - 21:30
+José Manuel, Ángel: 8:30-19:30
+Joaquín: 7:30 - 17:30
+
 
 */
-T.push(new Turno(C_JUEVES, nTurno++, "08:30", "17:30", [C_NACHO]));
+T.push(new Turno(C_JUEVES, nTurno++, "09:30", "16:30", [C_NACHO]));
 T.push(
-  new Turno(C_JUEVES, nTurno++, "08:20", "14:00", [
+  new Turno(C_JUEVES, nTurno++, "08:30", "14:30", [
     C_SUSANA,
     C_GUSTAVO,
+    C_SILVIA,
     C_LIDIA,
-    C_PILAR,
   ]),
 );
-T.push(new Turno(C_JUEVES, nTurno++, "14:30", "18:30", [C_JANNETH]));
+T.push(new Turno(C_JUEVES, nTurno++, "Ida flexible", "21:30", [C_ANTONIO]));
+T.push(new Turno(C_JUEVES, nTurno++, "08:30", "19:30", [C_JMF, C_ANGEL]));
+T.push(new Turno(C_JUEVES, nTurno++, "07:30", "21:30", [C_JOAQUIN]));
+
 /*
 Viernes:
-Nacho: 8:30 - 13:30
+Jose Alberto:  11:30-18:30  (Jose Alberto: salida flexible. Ángel: José Alberto si puedes salir a las 9:30 y volver a las 19:30 podríamos compartir coche)
+Ángel: 9:30 - 19:30
+Asun: 8:30-14:30
+
 
 */
-T.push(new Turno(C_VIERNES, nTurno++, "08:30", "13:30", [C_NACHO]));
+T.push(new Turno(C_VIERNES, nTurno++, "11:30", "18:30", [C_JOSE_ALBERTO]));
+T.push(new Turno(C_VIERNES, nTurno++, "09:30", "19:30", [C_ANGEL]));
+T.push(new Turno(C_VIERNES, nTurno++, "08:30", "18:30", [C_ASUN]));
 
 /* ==========================================================
    FUNCIÓN PARA APLICAR CAMBIOS Y EXCEPCIONES EN DÍAS CONCRETOS
@@ -129,17 +132,14 @@ function modificaciones_posteriores(dia) {
    Añadir nuevos coches o turnos a partir de una fecha concreta
    --- */
 
-  if (fechaEs(fecha, 23, 2, 2026)) {
+  if (fechaEs(fecha, 13, 10, 2026)) {
     T.push(
-      new Turno(C_LUNES, nTurno++, "12:30", "17:30", [C_NACHO]).addComentarios(
-        "Nuevo turno a partir del 23 de febrero.",
-      ),
+      new Turno(C_MARTES, nTurno++, "08:30", "13:30", [
+        C_SUSANA,
+      ]).addComentarios("Nuevo turno a partir del 13 de octubre."),
     );
   }
 
-  if (fechaEs(fecha, 3, 2, 2026)) {
-    T.push(new Turno(C_MARTES, nTurno++, "07:30", "12:30", [C_PILAR]));
-  }
   /* ---
    Modificar la hora de salida o de llegada de un turno ya existente
    --- */
@@ -148,61 +148,24 @@ function modificaciones_posteriores(dia) {
     T.get(2).hayCambios(); // Se marca el turno como modificado
   }
 
-  if (fechaEs(fecha, 13, 2, 2026)) {
-    T.get(12).hora_gr = "14:20"; // Cambia la hora de llegada
-    T.get(12).addComentarios(
-      "13-feb: se modifica la hora de salida a las 14:20.",
-    );
-    T.get(12).hayCambios(); // Se marca el turno como modificado
-  }
-  if (fechaEs(fecha, 12, 3, 2026)) {
-    T.get(12).hora_gr = "15:30"; // Cambia la hora de llegada
-    T.get(12).hora_ja = "19:30"; // Cambia la hora de salida
-    T.get(12).addComentarios(
-      "12-mar: se modifica el horario de 15:30 a 19:30.",
-    );
-    T.get(12).hayCambios(); // Se marca el turno como modificado
-  }
   /* ----
    Eliminar un turno 
    --- */
-  if (fechaEs(fecha, 30, 3, 2026)) cancelarTurno(3, fecha.toDD_MMM());
-  if (fechaEs(fecha, 29, 4, 2026)) cancelarTurno(8, fecha.toDD_MMM());
-  if (fechaEs(fecha, 29, 4, 2026)) cancelarTurno(11, fecha.toDD_MMM());
+  if (fechaEs(fecha, 30, 9, 2026)) cancelarTurno(6, fecha.toDD_MMM());
+  if (fechaEs(fecha, 22, 10, 2026)) cancelarTurno(7, fecha.toDD_MMM());
 
   /* --- 
    Añadir un conductor extra en una fecha concreta
    --- */
 
-  if (fechaEs(fecha, 9, 2, 2026))
-    aniadirConductor(1, C_ASUN, 2, fecha.toDD_MMM(), 2);
-  if (fechaEs(fecha, 18, 2, 2026))
-    aniadirConductor(10, C_ANTONIO, 0, fecha.toDD_MMM(), 0);
-  if (fechaEs(fecha, 19, 2, 2026))
-    aniadirConductor(14, C_ANTONIO, 4, fecha.toDD_MMM(), 4);
-  if (fechaEs(fecha, 10, 2, 2026))
-    aniadirConductor(4, C_ALFONSO, 1, fecha.toDD_MMM(), 0);
-  if (fechaEs(fecha, 11, 2, 2026))
-    aniadirConductor(9, C_ALFONSO, 1, fecha.toDD_MMM(), 0);
-  if (fechaEs(fecha, 13, 2, 2026))
-    aniadirConductor(12, C_ASUN, 0, fecha.toDD_MMM(), 0);
-  if (fechaEs(fecha, 26, 2, 2026))
-    aniadirConductor(13, C_VICTOR, 1, fecha.toDD_MMM(), 0);
-  if (fechaEs(fecha, 9, 3, 2026))
-    aniadirConductor(13, C_SILVIA, 2, fecha.toDD_MMM(), 2);
+  if (fechaEs(fecha, 6, 10, 2026))
+    aniadirConductor(5, C_ASUN, 2, fecha.toDD_MMM(), 1);
 
   /* ----
    Eliminar a un conductor de un turno en una fecha concreta
    --- */
-  if (fechaEs(fecha, 27, 3, 2026))
-    eliminarConductor(11, C_DAVID, fecha.toDD_MMM(), 0);
-
-  if (fechaEs(fecha, 13, 2, 2026))
-    eliminarConductor(1, C_ASUN, fecha.toDD_MMM(), 2);
-  if (fechaEs(fecha, 12, 3, 2026))
-    eliminarConductor(12, C_MIGUEL, fecha.toDD_MMM(), 0);
-  if (fechaEs(fecha, 7, 5, 2026))
-    eliminarConductor(13, C_VICTOR, fecha.toDD_MMM(), 1);
+  if (fechaEs(fecha, 13, 10, 2026))
+    eliminarConductor(3, C_SUSANA, fecha.toDD_MMM(), 3);
 
   // Fusionamos dos turnos porque de 6 pasan a 5
   if (fechaEs(fecha, 13, 2, 2026)) {
