@@ -107,7 +107,7 @@ Asun: 8:30-14:30
 */
 T.push(new Turno(C_VIERNES, nTurno++, "11:30", "18:30", [C_JOSE_ALBERTO]));
 T.push(new Turno(C_VIERNES, nTurno++, "09:30", "19:30", [C_ANGEL]));
-T.push(new Turno(C_VIERNES, nTurno++, "08:30", "18:30", [C_ASUN]));
+T.push(new Turno(C_VIERNES, nTurno++, "08:30", "14:30", [C_ASUN]));
 
 /* ==========================================================
    FUNCIÓN PARA APLICAR CAMBIOS Y EXCEPCIONES EN DÍAS CONCRETOS
@@ -160,12 +160,16 @@ function modificaciones_posteriores(dia) {
 
   if (fechaEs(fecha, 6, 10, 2026))
     aniadirConductor(5, C_ASUN, 2, fecha.toDD_MMM(), 1);
+  if (fechaEs(fecha, 1, 12, 2026))
+    aniadirConductor(18, C_ASUN, 1, fecha.toDD_MMM(), 1);
 
   /* ----
    Eliminar a un conductor de un turno en una fecha concreta
    --- */
   if (fechaEs(fecha, 13, 10, 2026))
     eliminarConductor(3, C_SUSANA, fecha.toDD_MMM(), 3);
+  if (fechaEs(fecha, 1, 12, 2026))
+    eliminarConductor(5, C_ASUN, fecha.toDD_MMM(), 1);
 
   // Fusionamos dos turnos porque de 6 pasan a 5
   if (fechaEs(fecha, 13, 2, 2026)) {
