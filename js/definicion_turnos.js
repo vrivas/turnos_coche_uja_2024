@@ -140,6 +140,20 @@ function modificaciones_posteriores(dia) {
     );
   }
 
+  if (fechaEs(fecha, 9, 9, 2026)) {
+    T.push(
+      new Turno(C_MIERCOLES, nTurno++, "08:30", "14:30", [
+        C_INMA_BARROSO,
+        C_LIDIA,
+        C_SUSANA,
+        C_GUSTAVO,
+      ])
+        .addComentarios("Nuevo turno a partir del 9 de septiembre.")
+        .addComentarios("Posibles cambios a partir del 21 de octubre")
+        .setContador(3),
+    );
+  }
+
   /* ---
    Modificar la hora de salida o de llegada de un turno ya existente
    --- */
@@ -161,6 +175,10 @@ function modificaciones_posteriores(dia) {
   if (fechaEs(fecha, 6, 10, 2026))
     aniadirConductor(5, C_ASUN, 2, fecha.toDD_MMM(), 1);
   if (fechaEs(fecha, 1, 12, 2026))
+    aniadirConductor(19, C_ASUN, 1, fecha.toDD_MMM(), 1);
+  if (fechaEs(fecha, 21, 10, 2026))
+    aniadirConductor(18, C_ALFONSO, 1, fecha.toDD_MMM(), 1);
+  if (fechaEs(fecha, 28, 10, 2026))
     aniadirConductor(18, C_ASUN, 1, fecha.toDD_MMM(), 1);
 
   /* ----
