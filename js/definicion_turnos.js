@@ -188,6 +188,8 @@ function modificaciones_posteriores(dia) {
     eliminarConductor(3, C_SUSANA, fecha.toDD_MMM(), 3);
   if (fechaEs(fecha, 1, 12, 2026))
     eliminarConductor(5, C_ASUN, fecha.toDD_MMM(), 1);
+  if (fechaEs(fecha, 19, 11, 2026))
+    eliminarConductor(18, C_GUSTAVO, fecha.toDD_MMM(), 1);
 
   // Fusionamos dos turnos porque de 6 pasan a 5
   if (fechaEs(fecha, 13, 2, 2026)) {
