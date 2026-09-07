@@ -95,7 +95,7 @@ T.push(
 );
 T.push(new Turno(C_JUEVES, nTurno++, "Ida flexible", "21:30", [C_ANTONIO]));
 T.push(new Turno(C_JUEVES, nTurno++, "08:30", "19:30", [C_JMF, C_ANGEL]));
-T.push(new Turno(C_JUEVES, nTurno++, "07:30", "21:30", [C_JOAQUIN]));
+T.push(new Turno(C_JUEVES, nTurno++, "07:30", "17:30", [C_JOAQUIN]));
 
 /*
 Viernes:
